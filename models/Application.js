@@ -31,50 +31,51 @@ Application.init(
     status: {
         type: DataTypes.STRING,
         allowNull: false,
-
-
+        validate: {
+            isIn: [['Applied', 'Interview Scheduled', 'Interviewed', 'On Hold', 'Offer Received', 'Offer Accepted', 'Offer Rejected', 'Application Rejected']],
+        }
     },
     location: {
         type: DataTypes.STRING,      
         allowNull: false,
-
-
     },
     interest_level: {
         type: DataTypes.STRING,
         allowNull: false,
-
-
+        validate: {
+            isIn: [['1', '2', '4', '4', '5']],
+        }
     },
     notes: {
         type: DataTypes.TEXT,
-        allowNull: false,
-
-
+        allowNull: true,
     },
     response_received_date: {
-        type: DataTypes.STRING,      
-        allowNull: false,
-
-
+        type: DataTypes.DATE,      
+        allowNull: true,
+        validate: {
+            isDate: true,
+        }
     },
-    applicaiton_submitted_date: {
+    application_submitted_date: {
         type: DataTypes.DATE,      
         allowNull: false,
-
-
+        validate: {
+            isDate: true,
+        }
     },
+    // calculate time between application_submitted_date and response_received_date
     weeks_between_app_res: {
         type: DataTypes.STRING,      
         allowNull: false,
-
 
     },
     work_site: {
         type: DataTypes.STRING,      
         allowNull: false,
-
-
+        validate: {
+            isIn: [['On-Site', 'Hybrid', 'Remote']],
+        }
     },
   },
   {
