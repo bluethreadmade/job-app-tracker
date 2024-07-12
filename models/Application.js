@@ -64,12 +64,12 @@ Application.init(
             isDate: true,
         }
     },
-    // calculate time between application_submitted_date and response_received_date
-    weeks_between_app_res: {
-        type: DataTypes.STRING,      
-        allowNull: false,
+    // // calculate time between application_submitted_date and response_received_date
+    // weeks_between_app_res: {
+    //     type: DataTypes.STRING,      
+    //     allowNull: false,
 
-    },
+    // },
     work_site: {
         type: DataTypes.STRING,      
         allowNull: false,
