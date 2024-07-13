@@ -11,7 +11,7 @@ Application.init(
   {
     //define columns
     id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
@@ -86,3 +86,5 @@ Application.init(
     modelName: 'application',
   }
 );
+
+module.exports = Application;
