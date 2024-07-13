@@ -67,5 +67,17 @@ router.post('/login', async (req,res) => {
 })
 
 // logout
+router.post('/logout', (req,res) => {
+    // if the user is logged in
+    if (req.session.loggedIn) {
+        // destroy the session
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+        // if the user is not logged in send an error
+    } else {
+        res.status(404).end();
+    }
+});
 
 module.exports = router;
