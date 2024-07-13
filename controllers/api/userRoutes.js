@@ -3,8 +3,8 @@ const router = require('express').Router();
 // require the user model
 const { User } = require('../../models');
 
-// Create new user/api/users
-router.post('/api', async (req,res) => {
+// Create new user - /api/users
+router.post('/', async (req,res) => {
     try {
         const userData = await User.create({
             email: req.body.email,
@@ -24,7 +24,7 @@ router.post('/api', async (req,res) => {
     }
 });
 
-// login
+// login - /
 router.post('/login', async (req,res) => {
     try {
         const userData = await User.findOne({
