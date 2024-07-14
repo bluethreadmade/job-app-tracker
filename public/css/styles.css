@@ -10,3 +10,29 @@
     box-sizing: border-box;
     font-family: "Titillium Web", sans-serif;
 }
+
+
+/* Font sizes for homepage */
+
+h1 {
+    font-size: 75px;
+    font-weight: bold;
+    margin-top: 75px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 55px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+h4 {
+    margin-bottom: 30px;
+}
+
+.fade-bg {
+    background-color: var(--tertiary);
+    
+}
