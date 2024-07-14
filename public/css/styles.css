@@ -29,10 +29,13 @@ h2 {
 }
 
 h4 {
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .fade-bg {
     background-color: var(--tertiary);
     
 }
+
+
+
