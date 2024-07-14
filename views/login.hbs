@@ -1,0 +1,84 @@
+<section class="container-fluid text-white">
+    <div class="row">
+        <div
+            class="col-md-6 col-sm-12 bg-dark d-flex flex-column align-items-center justify-content-center"
+        >
+            <!-- Log in form !-->
+            <form id="login-form" class="card p-4 m-4 gap-4 w-100">
+                <h4><b>Login</b></h4>
+                <div class="mb-1">
+                    <label for="loginInput" class="form-label">
+                        Email / Username
+                    </label>
+                    <input type="text" class="form-control" id="loginInput" />
+                </div>
+                <div>
+                    <label for="loginPasswordInput" class="form-label">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="loginPasswordInput"
+                        autocomplete="on"
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+
+            <h5>New here? Sign up below</h5>
+
+            <!-- Sign up form !-->
+            <form id="signup-form" class="card p-4 m-4 gap-4 w-100">
+                <h4><b>Sign Up</b></h4>
+                <div class="mb-1">
+                    <label for="signUpEmailInput" class="form-label">
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="signUpEmailInput"
+                        aria-describedby="emailHelp"
+                    />
+                    <div id="emailHelp" class="form-text">
+                        We'll never share your email with anyone else.
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <label for="signUpUsernameInput" class="form-label">
+                        Username
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="signUpUsernameInput"
+                        maxlength="52"
+                        minlength="3"
+                    />
+                </div>
+                <div>
+                    <label for="signUpPasswordInput" class="form-label">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="signUpPasswordInput"
+                        autocomplete="on"
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
+        <div
+            class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center"
+        >
+            <img class="m-4 w-100" src="images/AppTrack-Logo.png" alt="logo" />
+        </div>
+    </div>
+</section>
+
+<script src="js/login.js"></script>
