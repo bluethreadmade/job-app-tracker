@@ -1,8 +1,67 @@
 <section class="container-fluid text-white">
     <div class="row">
-        <div>
-            <h1>This is the left side</h1>
+
+        <div class="col-md-6 col-sm-12 bg-dark d-flex flex-column align-items-center justify-content-center">
+            <!-- Application Form -->
+            <form id="application-form" class="card p-4 m-4 gap-4 w-100">
+
+                <h4><b>Add an Application</b></h4>
+
+                <div class="mb-1">
+                    <label for="applicationInput" class="form-label">
+                        Company
+                    </label>
+                    <input type="text" class="form-control" id="applicationInput" />
+                </div>
+
+                <div class="mb-1">
+                    <label for="applicationPositionInput" class="form-label">
+                        Position
+                    </label>
+                    <input type="text" class="form-control" id="applicationPositionInput" />
+                </div>
+
+                <div>
+                    <label for="loginPasswordInput" class="form-label">
+     
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="loginPasswordInput"
+                        autocomplete="on"
+                    />
+                </div>
+
+                
+                <div class="mb-1">
+                    <label for="applicationAddressInput" class="form-label">
+                        Office Address (If Applicable):
+                    </label>
+                    <input type="text" class="form-control" id="applicationAddressInput" />
+                </div>
+
+                
+                <div class="mb-1">
+                    <label for="applicationLinkInput" class="form-label">
+                        Job Posting Link:
+                    </label>
+                    <input type="text" class="form-control" id="applicationLinkInput" />
+                </div>
+
+                
+                <div class="mb-1">
+                    <label for="applicationNotesInput" class="form-label">
+                        Additional Notes:
+                    </label>
+                    <input type="text" class="form-control" id="applicationNotesInput" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
         </div>
+
         <div
             class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center"
         >
