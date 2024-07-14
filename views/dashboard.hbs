@@ -1,0 +1,27 @@
+<section class="container-fluid">
+{{!-- Applications Submitted--}}
+    <div class="panel panel-default" id="applications">
+    <div class="panel-heading">
+        <h3 class="panel-title">Applications Submitted</h3>
+    </div>
+    <div class="panel-body">
+        {{COUNT(application.id)}}
+    </div>
+{{!-- Interviews Scheduled --}}
+    </div>
+    <div class="panel panel-default" id="interviews">
+    <div class="panel-heading">
+        <h3 class="panel-title">Interviews Scheduled</h3>
+    </div>
+    <div class="panel-body">
+        {{COUNT(interview.id)}}
+    </div>
+{{!-- Offers Received --}}
+    <div class="panel panel-default" id="offers">
+    <div class="panel-heading">
+        <h3 class="panel-title">Offers Received</h3>
+    </div>
+    <div class="panel-body">
+        {{COUNT(application.status = 'Offer Received')}}
+    </div>
+</section>
