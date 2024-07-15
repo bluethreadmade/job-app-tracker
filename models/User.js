@@ -34,6 +34,7 @@ User.init(
             allowNull: false,
             validate: {
                 len: [6, 14],
+                isAlphanumeric: true,
             },
         },
     },
