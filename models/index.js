@@ -1,6 +1,6 @@
 // Import models
 const User = require('./User');
-const Application = require('./Application');
+const { Application } = require('./Application');
 
 // Define relationships
 
