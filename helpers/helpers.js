@@ -25,5 +25,19 @@ module.exports = {
             console.error('Error counting interviews scheduled:', error);
             throw error;
         }
+    },
+
+    // function to count offers received   
+    countOffers: async (status) => {
+        try {
+            const count = await Application.count({
+                where: { status: 5 },
+                distinct: true,   
+            });
+            return count;
+        } catch (error) {
+            console.error('Error counting offers received:', error);
+            throw error;
+        }
     }
 };
