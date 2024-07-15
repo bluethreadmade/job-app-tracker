@@ -8,7 +8,7 @@ const seedDatabase = async () => {
     // Initialize the sequelize datbase connection
     await sequelize.sync({ force: true });
 
-    await User.bulkCreate(userSeedData);
+    await User.bulkCreate(userSeedData, {individualHooks: true});
     await Application.bulkCreate(applicationSeedData);
 
     process.exit(0);
