@@ -1,50 +1,10 @@
 [
     {
-      "email": "john.doe@example.com",
-      "password": "pass123"
+        "email": "john.doe@example.com",
+        "password": "pass123"
     },
     {
-      "email": "jane.smith@example.com",
-      "password": "securepwd1"
-    },
-    {
-      "email": "michael.brown@example.com",
-      "password": "test4567"
-    },
-    {
-      "email": "emily.johnson@example.com",
-      "password": "password12"
-    },
-    {
-      "email": "chris.wilson@example.com",
-      "password": "securepass"
-    },
-    {
-      "email": "sarah.moore@example.com",
-      "password": "letmein123"
-    },
-    {
-      "email": "david.martin@example.com",
-      "password": "p@ssw0rd"
-    },
-    {
-      "email": "laura.thompson@example.com",
-      "password": "12345678901234"
-    },
-    {
-      "email": "kevin.garcia@example.com",
-      "password": "qwertyui"
-    },
-    {
-      "email": "amy.rodriguez@example.com",
-      "password": "passw0rd123"
-    },
-    {
-      "email": "jason.hernandez@example.com",
-      "password": "hello12345678"
-    },
-    {
-      "email": "linda.nguyen@example.com",
-      "password": "secure1234"
+        "email": "jane.smith@example.com",
+        "password": "securepwd1"
     }
-  ]
+]
