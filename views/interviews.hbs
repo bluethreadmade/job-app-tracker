@@ -1,0 +1,104 @@
+<section class="container-fluid text-white">
+    <div class="row">
+        <div
+            class="col-md-6 col-sm-12 bg-dark d-flex flex-column align-items-center justify-content-center"
+        >
+            <!-- Application Form -->
+            <form id="interview-form" class="card p-4 m-4 gap-4 w-100">
+                <h4><b>Add an Interview</b></h4>
+
+                <div class="mb-1">
+                    <label for="applicationStatusInput" class="form-label">
+                        <select>
+                            <option>- Select Application Status -</option>
+                            <option value="Applied">Applied</option>
+                            <option value="Interview-Scheduled">Interview Scheduled</option>
+                            <option value="Interviewed">Interviewed</option>
+                            <option value="On-Hold">On Hold</option>
+                            <option value="Offer-Recieved">Offer Recieved</option>
+                            <option value="Offer-Accepted">Offer Accepted</option>
+                            <option value="Application-Rejected">
+                                Application Rejected
+                            </option>
+                            <option value="Offer-Rejected">Offer Rejected</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mb-1">
+                    <label for="applicationSettingInput" class="form-label">
+                        <select>
+                            <option>- Select Work Setting -</option>
+                            <option value="Onsite">Onsite</option>
+                            <option value="Remote">Remote</option>
+                            <option value="Hybrid">Hybrid</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mb-1">
+                    <label for="interviewTimeInput" class="form-label">
+                        Interview Time
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewTimeInput"
+                    />
+                </div>
+
+                <div>
+                    <label for="interviewLocationInput" class="form-label">
+                        Interview Location
+                    </label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="interviewLocationInput"
+                    />
+                </div>
+
+                <div class="mb-1">
+                    <label for="interviewVideoLinkInput" class="form-label">
+                        Video Link:
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewVideoLinkInput"
+                    />
+                </div>
+
+                <div class="mb-1">
+                    <label for="interviewLinkInput" class="form-label">
+                        Interviewer Link:
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewLinkInput"
+                    />
+                </div>
+
+                <div class="mb-1">
+                    <label for="interviewNotesInput" class="form-label">
+                        Additional Notes:
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewNotesInput"
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+
+        <div
+            class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center"
+        >
+            <img class="m-4 w-100" src="images/AppTrack-Logo.png" alt="logo" />
+        </div>
+    </div>
+</section>
