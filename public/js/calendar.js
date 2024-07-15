@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
             start: '2024-07-20T13:00:00'
         },
         {
-          title: 'Google Interview',
-          url: 'https://google.com/',
-          start: '2024-07-25T07:00:00'
+            title: 'Google Interview',
+            url: 'https://google.com/',
+            start: '2024-07-25T07:00:00'
         }
       ]
     });

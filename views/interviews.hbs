@@ -26,121 +26,74 @@
                 <h4><b>Add an Application (Calendar Below!)</b></h4>
 
                 <div class="mb-1">
-                    <label for="applicationInput" class="form-label">
-                        Company
+                    <label for= "interviewPositionInput" class="form-label">
+                        Position:
                     </label>
                     <input
                         type="text"
                         class="form-control"
-                        id="applicationInput"
+                        id="interviewPositionInput"
                     />
                 </div>
 
+                {{!-- DATE --}}
+
                 <div class="mb-1">
-                    <label for="applicationPositionInput" class="form-label">
-                        Position
+                    <label for="interviewTimeInput" class="form-label">
+                        Time: (Use T00:00:00 - 23:59:59 format)
                     </label>
                     <input
                         type="text"
                         class="form-control"
-                        id="applicationPositionInput"
+                        id="interviewTimeInput"
                     />
                 </div>
 
                 <div class="mb-1">
-                    <label for="applicationStatusInput" class="form-label">
-                        <select>
-                            <option>- Select Application Status -</option>
-                            <option value="Applied">Applied</option>
-                            <option value="Interview-Scheduled">Interview Scheduled</option>
-                            <option value="Interviewed">Interviewed</option>
-                            <option value="On-Hold">On Hold</option>
-                            <option value="Offer-Recieved">Offer Recieved</option>
-                            <option value="Offer-Accepted">Offer Accepted</option>
-                            <option value="Application-Rejected">
-                                Application Rejected
-                            </option>
-                            <option value="Offer-Rejected">Offer Rejected</option>
-                        </select>
-                    </label>
-                </div>
-
-                <div class="mb-1">
-                    <label for="applicationSettingInput" class="form-label">
-                        <select>
-                            <option>- Select Work Setting -</option>
-                            <option value="Onsite">Onsite</option>
-                            <option value="Remote">Remote</option>
-                            <option value="Hybrid">Hybrid</option>
-                        </select>
-                    </label>
-                </div>
-
-                <div class="mb-1">
-                    <label for="applicationRatingInput" class="form-label">
-                        Interest Level
-                    </label>
-                    <br />
-                    <div class="rate">
-                        <input type="radio" id="star5" name="rate" value="5" />
-                        <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4" />
-                        <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3" />
-                        <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2" />
-                        <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1" />
-                        <label for="star1" title="text">1 star</label>
-                    </div>
-                </div>
-
-                <div>
-                    <label for="loginPasswordInput" class="form-label">
-                        Password
-                    </label>
-                    <input
-                        type="password"
-                        class="form-control"
-                        id="loginPasswordInput"
-                        autocomplete="on"
-                    />
-                </div>
-
-                <div class="mb-1">
-                    <label for="applicationAddressInput" class="form-label">
-                        Office Address (If Applicable):
+                    <label for="interviewLocationInput" class="form-label">
+                        Location:
                     </label>
                     <input
                         type="text"
                         class="form-control"
-                        id="applicationAddressInput"
+                        id="interviewLocationInput"
                     />
                 </div>
 
                 <div class="mb-1">
-                    <label for="applicationLinkInput" class="form-label">
-                        Job Posting Link:
+                    <label for="interviewVideoLinkInput" class="form-label">
+                        Video Link:
                     </label>
                     <input
                         type="text"
                         class="form-control"
-                        id="applicationLinkInput"
+                        id="interviewVideoLinkInput"
                     />
                 </div>
 
                 <div class="mb-1">
-                    <label for="applicationNotesInput" class="form-label">
+                    <label for="interviewInterviewerInput" class="form-label">
+                        Interviewer:
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewInterviewerInput"
+                    />
+                </div>
+
+                <div class="mb-1">
+                    <label for="interviewNotesInput" class="form-label">
                         Additional Notes:
                     </label>
                     <input
                         type="text"
                         class="form-control"
-                        id="applicationNotesInput"
+                        id="interviewerNotesInput"
                     />
                 </div>
 
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
 
