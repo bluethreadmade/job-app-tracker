@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
             req.session.loggedIn = true;
             req.session.userId = userData.id;
 
-            res.render('/');
+            res.redirect('/');
         });
     } catch (err) {
         console.log(err);
@@ -69,7 +69,7 @@ router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         // destroy the session
         req.session.destroy(() => {
-            res.render('/');
+            res.redirect('/');
         });
         // if the user is not logged in send an error
     } else {
