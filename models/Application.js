@@ -87,6 +87,8 @@ Application.init(
         },
         user_id: {
             type: DataTypes.INTEGER,
+            unique: false,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id',

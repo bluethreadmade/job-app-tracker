@@ -3,7 +3,7 @@
     data-bs-theme="dark"
 >
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><b>AppTracker</b></a>
+        <a class="navbar-brand" href="/"><b>AppTrack</b></a>
         <button
             class="navbar-toggler"
             type="button"
@@ -18,7 +18,7 @@
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                {{#if logged_in}}
+                {{#if loggedIn}}
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/dashboard">
                         Dashboard
@@ -37,15 +37,26 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <button
+                        id="logout-btn"
+                        type="button"
+                        class="btn btn-danger"
+                    >
+                        Log out
+                    </button>
+                </li>
                 {{else}}
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/login">Log In</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/signup">Sign Up</a>
+                    <a class="nav-link text-white" href="/login">Sign Up</a>
                 </li>
                 {{/if}}
             </ul>
         </div>
     </div>
 </nav>
+
+<script src="js/navbar.js" defer></script>

@@ -7,16 +7,20 @@
             <form id="login-form" class="card p-4 m-4 gap-4 w-100">
                 <h4><b>Login</b></h4>
                 <div class="mb-1">
-                    <label for="loginInput" class="form-label">
-                        Email / Username
-                    </label>
-                    <input type="text" class="form-control" id="loginInput" />
+                    <label for="loginInput" class="form-label">Email</label>
+                    <input
+                        required
+                        type="email"
+                        class="form-control"
+                        id="loginInput"
+                    />
                 </div>
                 <div>
                     <label for="loginPasswordInput" class="form-label">
                         Password
                     </label>
                     <input
+                        required
                         type="password"
                         class="form-control"
                         id="loginPasswordInput"
@@ -37,6 +41,7 @@
                         Email
                     </label>
                     <input
+                        required
                         type="email"
                         class="form-control"
                         id="signUpEmailInput"
@@ -46,23 +51,12 @@
                         We'll never share your email with anyone else.
                     </div>
                 </div>
-                <div class="mb-1">
-                    <label for="signUpUsernameInput" class="form-label">
-                        Username
-                    </label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="signUpUsernameInput"
-                        maxlength="52"
-                        minlength="3"
-                    />
-                </div>
                 <div>
                     <label for="signUpPasswordInput" class="form-label">
                         Password
                     </label>
                     <input
+                        required
                         type="password"
                         class="form-control"
                         id="signUpPasswordInput"

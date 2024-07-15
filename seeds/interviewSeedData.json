@@ -1,0 +1,42 @@
+[
+    {
+        "date": "2023-07-15",
+        "address": "1234 Tech Drive, San Francisco, CA",
+        "video_link": "https://videolink.com/meeting/123",
+        "interviewer": "John Doe",
+        "notes": "Technical interview, focus on algorithms and data structures",
+        "application_id": 1
+    },
+    {
+        "date": "2023-07-20",
+        "address": "5678 Innovation Lane, New York, NY",
+        "video_link": "https://videolink.com/meeting/456",
+        "interviewer": "Jane Smith",
+        "notes": "Behavioral interview, discuss previous projects and teamwork",
+        "application_id": 2
+    },
+    {
+        "date": "2023-07-22",
+        "address": "9012 Enterprise Blvd, Austin, TX",
+        "video_link": null,
+        "interviewer": "Mark Johnson",
+        "notes": "Panel interview, focus on system design and architecture",
+        "application_id": 1
+    },
+    {
+        "date": "2023-07-25",
+        "address": null,
+        "video_link": "https://videolink.com/meeting/789",
+        "interviewer": "Emily Davis",
+        "notes": "Initial phone screen, discuss resume and background",
+        "application_id": 1
+    },
+    {
+        "date": "2023-07-28",
+        "address": "3456 Startup Road, Seattle, WA",
+        "video_link": null,
+        "interviewer": "Chris Lee",
+        "notes": "Technical interview, coding challenge",
+        "application_id": 2
+    }
+]

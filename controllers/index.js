@@ -6,32 +6,53 @@ const apiRoutes = require('./api');
 router.use('/api', apiRoutes);
 
 router.get('/', (req, res) => {
-    res.render('homepage');
+    res.render('homepage', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/application', (req, res) => {
-    // TODO: Check that the user is logged in here!
-    res.render('applications');
+    // Check that the user is logged in!
+    if (!req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('application', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/dashboard', (req, res) => {
-    // TODO: Check that the user is logged in here!
-    res.render('dashboard');
+    // Check that the user is logged in!
+    if (!req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('dashboard', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/interviews', (req, res) => {
-    // TODO: Check that the user is logged in here!
-    res.render('interviews');
+    // Check that the user is logged in!
+    if (!req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('interviews', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/login', (req, res) => {
-    // TODO: Check that the user is NOT logged in here!
-    res.render('login');
+    // Check if the user is logged in already
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/signup', (req, res) => {
-    // TODO: Check that the user is NOT logged in here!
-    res.render('signup');
+    // Check if the user is logged in already
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('signup', { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;
