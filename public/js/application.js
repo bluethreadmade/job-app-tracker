@@ -1,4 +1,4 @@
-const statusDropdown = document.querySelector('#login-form');
+const statusDropdown = document.querySelector('#statusDropdown');
 
 
 document.getElementById('statusDropdown').addEventListener('change', function() {
@@ -10,4 +10,4 @@ document.getElementById('statusDropdown').addEventListener('change', function() 
     });
     const updatedHtml = template({ Application });
     document.getElementById('tableContainer').innerHTML = updatedHtml;
-});
+});   
