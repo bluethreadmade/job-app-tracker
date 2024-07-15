@@ -76,9 +76,3 @@ h4 {
 .rate > label:hover ~ input:checked ~ label {
     color: #c59b08;
 }
-
-#calendar {
-    max-width: 1100px;
-    margin: 40px auto;
-    font: 12px;
-  }
