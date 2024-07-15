@@ -38,3 +38,11 @@ h4 {
 }
 
 /* end of the homepage design */
+
+/* star rating design css  */
+
+.card {
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+  }
