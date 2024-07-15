@@ -16,7 +16,7 @@ router.post('/signup', async (req, res) => {
             req.session.loggedIn = true;
             req.session.userId = userData.id;
 
-            res.render('/');
+            res.redirect('/');
         });
     } catch (err) {
         console.log(err);
@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
             return;
         }
         // set the variable validPassword to equal the output of the method checkPassword - agaignst the request body password
-        const validPassword = userData.checkPassword(req.body.password);
+        const validPassword = await userData.checkPassword(req.body.password);
 
         if (!validPassword) {
             res.status(400).json({
