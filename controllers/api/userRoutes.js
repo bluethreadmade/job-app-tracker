@@ -1,10 +1,10 @@
 // require router function of express
 const router = require('express').Router();
 // require the user model
-const { User } = require('../../models');
+const { User, Application } = require('../../models');
 
 // Create new user - /api/users
-router.post('/', async (req,res) => {
+router.post('/', async (req, res) => {
     try {
         const userData = await User.create({
             email: req.body.email,
@@ -17,15 +17,14 @@ router.post('/', async (req,res) => {
 
             res.status(200).json(userData);
         });
-        
     } catch (err) {
         console.log(err);
-        res.status(500).json(err)
+        res.status(500).json(err);
     }
 });
 
 // login - /api/users/login
-router.post('/login', async (req,res) => {
+router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({
             where: {
@@ -34,19 +33,19 @@ router.post('/login', async (req,res) => {
         });
         // check if the user (email) exists in the database
         if (!userData) {
-            res
-            .status(400)
-            .json({ message: 'No User with that email. Please try again'});
-            
+            res.status(400).json({
+                message: 'No User with that email. Please try again',
+            });
+
             return;
         }
         // set the variable validPassword to equal the output of the method checkPassword - agaignst the request body password
         const validPassword = await userData.checkPassword(req.body.password);
 
         if (!validPassword) {
-            res
-            .status(400)
-            .json({ message: 'Incorrect email or password. Please try again'})
+            res.status(400).json({
+                message: 'Incorrect email or password. Please try again',
+            });
 
             return;
         }
@@ -55,19 +54,19 @@ router.post('/login', async (req,res) => {
         req.session.save(() => {
             req.session.loggedIn = true;
 
-            res
-                .status(200)
-                .json({ user: userData, message: 'You are now logged in'});
+            res.status(200).json({
+                user: userData,
+                message: 'You are now logged in',
+            });
         });
-        
     } catch (err) {
         console.log(err);
-        res.status(500).json(err);        
+        res.status(500).json(err);
     }
-})
+});
 
 // logout
-router.post('/logout', (req,res) => {
+router.post('/logout', (req, res) => {
     // if the user is logged in
     if (req.session.loggedIn) {
         // destroy the session
@@ -77,6 +76,20 @@ router.post('/logout', (req,res) => {
         // if the user is not logged in send an error
     } else {
         res.status(404).end();
+    }
+});
+
+// Get one application **DEV ROUTE** - /api/users/application/:id
+router.get('/application/:id', async (req, res) => {
+    try {
+        const appData = await Application.findByPk(req.params.id);
+        console.log(appData);
+        const application = appData.get({ plain: true });
+
+        res.render('single-app.hbs', { application });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
