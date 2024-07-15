@@ -42,7 +42,7 @@
         </tr>
     </thead>
     <tbody>
-        <a><tr>
+        {{!-- <a><tr>
         <td>Acme Inc.</td>
         <td>Temp Marketing Associate</td>
         <td><span class="badge badge-pill bs-primary" style="background-color: orange">Applied</span></td>
@@ -56,7 +56,14 @@
         <td>Microsoft</td>
         <td>Marketing Director</td>
         <td><span class="badge badge-pill bs-danger" style="background-color: red">Rejected</span></td>
-        </tr></a>
+        </tr></a> --}}
+        <a>{{#each Application}}
+        <tr>
+            <td>{{company}}</td>
+            <td>{{position}}</td>
+            <td><span class="badge badge-pill {{getStatusBadgeClass status}}">{{status}}</span></td>
+        </tr>
+        {{/each}}</a>
     </tbody>
     </table>
     </section>
