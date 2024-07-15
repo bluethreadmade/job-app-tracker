@@ -1,7 +1,7 @@
 // require router function of express
 const router = require('express').Router();
 // require the user model
-const { User } = require('../../models');
+const { User, Application } = require('../../models');
 
 // Create new user - /api/users
 router.post('/signup', async (req, res) => {
@@ -76,5 +76,20 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
+
+// Get one application **DEV ROUTE** - /api/users/application/:id
+router.get('/application/:id', async (req, res) => {
+    try {
+        const appData = await Application.findByPk(req.params.id);
+        console.log(appData);
+        const application = appData.get({ plain: true });
+
+        res.render('single-app.hbs', { application });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;
