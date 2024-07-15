@@ -11,5 +11,19 @@ module.exports = {
             console.error('Error counting user applications:', error);
             throw error;
         }
+    },
+
+    // function to count scheduled interviews   
+    countInterviews: async (status) => {
+        try {
+            const count = await Application.count({
+                where: { status: 2 },
+                distinct: true,   
+            });
+            return count;
+        } catch (error) {
+            console.error('Error counting interviews scheduled:', error);
+            throw error;
+        }
     }
 };
