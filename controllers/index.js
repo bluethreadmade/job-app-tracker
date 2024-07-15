@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 router.get('/application', (req, res) => {
     // TODO: Check that the user is logged in here!
-    res.render('application');
+    res.render('applications');
 });
 
 router.get('/dashboard', (req, res) => {
