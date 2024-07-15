@@ -1,15 +1,15 @@
-<section class="container-fluid d-flex justify-content-around w-100">
-{{!-- Applications Submitted--}}
-    <div class="card m-4 w-30 flex-fill">
-    <div class="card-header">
-        <h4>Applications Submitted</h4>
-    </div>
-    <div class="card-body">
-        <h4>24</h4>
-    </div>
+<section class="container-fluid d-flex">
+    {{!-- Applications Submitted--}}
+    <div class="card m-4">
+        <div class="card-header">
+            <h4>Applications Submitted</h4>
+        </div>
+        <div class="card-body">
+            <h4>24</h4>
+        </div>
     </div>
 {{!-- Interviews Scheduled --}}
-    <div class="card m-4 w-30 flex-fill">
+    <div class="card m-4">
     <div class="card-header">
         <h4>Interviews Scheduled</h4>
     </div>
@@ -18,7 +18,7 @@
     </div>
     </div>
 {{!-- Offers Received --}}
-    <div class="card m-4 w-30 flex-fill">
+    <div class="card m-4">
     <div class="card-header">
         <h4>Offers Received</h4>
     </div>
@@ -28,12 +28,9 @@
     </div>
 </section>
 
-<section class="container-xxl m-6 w-100"> 
-    <section class="card p-0 mw-100">
+<section class="container-fluid"> 
     <table class="table table-hover">
-    <div class="card-header">
-        <h4>Job Applications</h4>
-    </div>
+    <h3>Job Applications</h3>
     <thead class="thead-light">
         <tr>
         <th scope="col">Company</th>
@@ -42,21 +39,21 @@
         </tr>
     </thead>
     <tbody>
-        <a><tr>
+        <tr>
         <td>Acme Inc.</td>
         <td>Temp Marketing Associate</td>
-        <td><span class="badge badge-pill bs-primary" style="background-color: orange">Applied</span></td>
-        </tr></a>
-        <a><tr>
+        <td><span class="badge badge-pill badge-primary">Applied</span></td>
+        </tr>
+        <tr>
         <td>Google</td>
         <td>Senior Marketing Manager</td>
-        <td><span class="badge badge-pill bs-success" style="background-color: green">Offer Received</span></td>
-        </tr></a>
-        <a><tr>
+        <td><span class="badge badge-pill badge-success">Offer Received</span></td>
+        </tr>
+        <tr>
         <td>Microsoft</td>
         <td>Marketing Director</td>
-        <td><span class="badge badge-pill bs-danger" style="background-color: red">Rejected</span></td>
-        </tr></a>
+        <td><span class="badge badge-pill badge-danger">Rejected</span></td>
+        </tr>
     </tbody>
     </table>
     </section>
