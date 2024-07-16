@@ -1,5 +1,5 @@
 module.exports = {
-    // function to count applications 
+    // function to count applications
     countApplications: async (user_id) => {
         try {
             const count = await Application.count({
@@ -13,12 +13,12 @@ module.exports = {
         }
     },
 
-    // function to count scheduled interviews   
+    // function to count scheduled interviews
     countInterviews: async (status) => {
         try {
             const count = await Application.count({
                 where: { status: 2 },
-                distinct: true,   
+                distinct: true,
             });
             return count;
         } catch (error) {
@@ -27,12 +27,12 @@ module.exports = {
         }
     },
 
-    // function to count offers received   
+    // function to count offers received
     countOffers: async (status) => {
         try {
             const count = await Application.count({
                 where: { status: 5 },
-                distinct: true,   
+                distinct: true,
             });
             return count;
         } catch (error) {
@@ -41,7 +41,7 @@ module.exports = {
         }
     },
 
-    // function to assign each status a badge class 
+    // function to assign each status a badge class
     getStatusBadgeClass: async (status) => {
         switch (status) {
             case 'Applied':
@@ -61,5 +61,6 @@ module.exports = {
             default:
                 return 'badge-primary';
         }
-    }
+    },
+
 };
