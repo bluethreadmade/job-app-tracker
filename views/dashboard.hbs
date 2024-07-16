@@ -5,7 +5,7 @@
         <h4>Applications Submitted</h4>
     </div>
     <div class="card-body">
-        <h4>24</h4>
+        <h4>{{countApplications application.user_id}}</h4>
     </div>
     </div>
 {{!-- Interviews Scheduled --}}
@@ -14,7 +14,7 @@
         <h4>Interviews Scheduled</h4>
     </div>
     <div class="card-body">
-        <h4>4</h4>
+        <h4>{{countInterviews application.status}}</h4>
     </div>
     </div>
 {{!-- Offers Received --}}
@@ -23,7 +23,7 @@
         <h4>Offers Received</h4>
     </div>
     <div class="card-body">
-        <h4>2</h4>
+        <h4>{{countOffers application.status}}</h4>
     </div>
     </div>
 </section>
@@ -42,22 +42,7 @@
         </tr>
     </thead>
     <tbody>
-        {{!-- <a><tr>
-        <td>Acme Inc.</td>
-        <td>Temp Marketing Associate</td>
-        <td><span class="badge badge-pill bs-primary" style="background-color: orange">Applied</span></td>
-        </tr></a>
-        <a><tr>
-        <td>Google</td>
-        <td>Senior Marketing Manager</td>
-        <td><span class="badge badge-pill bs-success" style="background-color: green">Offer Received</span></td>
-        </tr></a>
-        <a><tr>
-        <td>Microsoft</td>
-        <td>Marketing Director</td>
-        <td><span class="badge badge-pill bs-danger" style="background-color: red">Rejected</span></td>
-        </tr></a> --}}
-        <a>{{#each Application}}
+        <a>{{#each application}}
         <tr>
             <td>{{company}}</td>
             <td>{{position}}</td>
