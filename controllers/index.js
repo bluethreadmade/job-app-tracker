@@ -44,12 +44,12 @@ router.get('/dashboard', async (req, res) => {
     });
     
     const interviewCount = await Application.count({
-        where: { status: 2 },
+        where: { user_id: req.session.userId, status: 2 },
         distinct: true,   
     });
 
     const offerCount = await Application.count({
-        where: { status: 5 },
+        where: { user_id: req.session.userId, status: 5 },
         distinct: true,   
     });
 
