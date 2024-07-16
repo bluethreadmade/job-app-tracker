@@ -42,13 +42,13 @@
         </tr>
     </thead>
     <tbody>
-        <a>{{#each applications as |app|}}
+        {{#each applications as |app|}}
         <tr>
             <td>{{app.company}}</td>
-            <td>{{app.position}}</td>
+            <td><a href="/api/application/{{app.id}}">{{app.position}}</a></td>
             <td><span class="badge bg-pill {{getStatusBadgeClass app.status}}">{{displayStatus app.status}}</span></td>
         </tr>
-        {{/each}}</a>
+        {{/each}}
     </tbody>
     </table>
     </section>
