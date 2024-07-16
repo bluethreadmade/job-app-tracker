@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+    </script>
+  </head>
+
+<section class="container-fluid text-white">
+    <div class="row">
+        <div
+            class="col-md-6 col-sm-12 bg-dark d-flex flex-column align-items-center justify-content-center"
+        >
+            <!-- Application Form -->
+            <form id="application-form" class="card p-4 m-4 gap-4 w-100">
+                <h4><b>Add an Application (Calendar Below!)</b></h4>
+
+                <div class="mb-1">
+                    <label for= "interviewPositionInput" class="form-label">
+                        Position:
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewPositionInput"
+                    />
+                </div>
+
+                {{!-- DATE --}}
+
+                <div class = "mb-1">
+                    <label for = "interviewDateInput" class = "form-label">
+                        Date:
+                    </label>
+                    <input type="date" class = "form-control" id="interviewDateInput">
+                </div>
+
+                <div class="mb-1">
+                    <label for="interviewTimeInput" class="form-label">
+                        Time: (Use T00:00:00 - 23:59:59 format)
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewTimeInput"
+                    />
+                </div>
+
+                <div class="mb-1">
+                    <label for="interviewLocationInput" class="form-label">
+                        Location:
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewLocationInput"
+                    />
+                </div>
+
+                <div class="mb-1">
+                    <label for="interviewVideoLinkInput" class="form-label">
+                        Video Link:
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewVideoLinkInput"
+                    />
+                </div>
+
+                <div class="mb-1">
+                    <label for="interviewInterviewerInput" class="form-label">
+                        Interviewer:
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewInterviewerInput"
+                    />
+                </div>
+
+                <div class="mb-1">
+                    <label for="interviewNotesInput" class="form-label">
+                        Additional Notes:
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="interviewerNotesInput"
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <div
+            class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center"
+        >
+            <img class="m-4 w-100" src="images/AppTrack-Logo.png" alt="logo" />
+        </div>
+    </div>
+</section>
+
+<br/>
+
+<section id = "calendar"></section>
+
+<script src="js/calendar.js"></script>
+
+</html>
