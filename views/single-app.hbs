@@ -9,22 +9,18 @@
                     </h2>
                 </div>
                 <div class="me-auto p-2">
-                    {{!--
                     <h3>
-                        <span
-                            class="badge badge-pill {{getStatusBadgeClass application.status}}"
-                        >
+                        <spanclass="badge bg-pill {{getStatusBadgeClass application.status}}">
                             {{ application.status }}
                         </span>
                     </h3>
-                    --}}
                 </div>
-                <div class="p-2">
+                <button type="button" id="edit" class="btn p-2">
                     <img src="/images/edit.svg" alt="Edit Icon" />
-                </div>
-                <div class="p-2">
-                    <a href="/delete"><img src="/images/delete.svg" alt="Delete Icon" /></a>
-                </div>
+                </button>
+                <button type="button" id="delete" class="btn p-2">
+                    <img src="/images/delete.svg" alt="Delete Icon" />
+                </button>
             </div>
         </div>
         <div class="row align-items-start border-bottom">
@@ -47,9 +43,7 @@
             {{!-- Location Section --}}
             <div class="row justify-content-start">
                 <div class="col">
-                    <h3>
-                        Location: {{ application.location }}
-                    </h3>
+                    <h3>Location: {{ application.location }}</h3>
                 </div>
                 <div class="col">
                     <h3><b>work site pill</b></h3>
@@ -58,15 +52,13 @@
         </div>
         <div class="row align-items-start border-bottom">
             {{!-- Date Applied Section --}}
-            <h3>
-                    Date Applied: {{ application.application_submitted_date }}
-            </h3>
+            <h3>Date Applied: {{ application.application_submitted_date }}</h3>
         </div>
         <div class="row align-items-start border-bottom">
             {{!-- Notes Section --}}
-            <h3>
-                Notes: {{ application.notes }}
-            </h3>
+            <h3>Notes: {{ application.notes }}</h3>
         </div>
     </div>
 </section>
+
+<script src="/js/application.js"></script>

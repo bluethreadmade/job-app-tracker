@@ -21,6 +21,42 @@ router.get('/application', (req, res) => {
     res.render('application', { loggedIn: req.session.loggedIn });
 });
 
+router.get('/applications/edit/:id', async (req, res) => {
+    // Check that the user is logged in!
+    if (!req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    try {
+        const appData = await Application.findByPk(req.params.id);
+        const application = appData.get({ plain: true});
+
+        res.render('application', { loggedIn: req.session.loggedIn, application });
+    }catch(err) {
+
+    }
+
+});
+
+// Get one application - application/:id
+router.get('/application/:id', async (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    try {
+        const appData = await Application.findByPk(req.params.id);
+        console.log(appData);
+        const application = appData.get({ plain: true });
+
+        res.render('single-app.hbs', { application });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 router.get('/dashboard', async (req, res) => {
     // Check that the user is logged in!
     if (!req.session.loggedIn) {

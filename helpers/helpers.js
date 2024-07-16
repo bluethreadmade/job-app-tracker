@@ -42,8 +42,26 @@ module.exports = {
                 return 'bg-dark';
             case 8:
                 return 'bg-danger';
+            case 1:
+                return 'bg-primary';
+            case 2:
+                return 'bg-info';
+            case 3:
+                return 'bg-warning';
+            case 4:
+                return 'bg-dark';
+            case 5:
+                return 'bg-success';
+            case 6:
+                return 'bg-success';
+            case 7:
+                return 'bg-dark';
+            case 8:
+                return 'bg-danger';
             default:
                 return 'bg-primary';
+                return 'bg-primary';
         }
-    }
+    },
+
 };

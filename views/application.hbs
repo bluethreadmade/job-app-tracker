@@ -15,6 +15,7 @@
                         type="text"
                         class="form-control"
                         id="applicationInput"
+                        value="{{ application.company }}"
                     />
                 </div>
 
@@ -26,23 +27,41 @@
                         type="text"
                         class="form-control"
                         id="applicationPositionInput"
+                        value="{{ application.position }}"
                     />
                 </div>
 
                 <div class="mb-1">
-                    <label for="applicationStatusInput" class="form-label" id="statusDropdown">
+                    <label
+                        for="applicationStatusInput"
+                        class="form-label"
+                        id="statusDropdown"
+                    >
                         <select>
-                            <option>- Select Application Status -</option>
+                            {{#select application.status}}
+                            {{#unless application.status}}
+                                 <option>- Select Application Status -</option>
+                            {{/unless}}
+                           
                             <option value="Applied">Applied</option>
-                            <option value="Interview-Scheduled">Interview Scheduled</option>
+                            <option value="Interview-Scheduled">
+                                Interview Scheduled
+                            </option>
                             <option value="Interviewed">Interviewed</option>
                             <option value="On-Hold">On Hold</option>
-                            <option value="Offer-Received">Offer Received</option>
-                            <option value="Offer-Accepted">Offer Accepted</option>
+                            <option value="Offer-Received">
+                                Offer Received
+                            </option>
+                            <option value="Offer-Accepted">
+                                Offer Accepted
+                            </option>
                             <option value="Application-Rejected">
                                 Application Rejected
                             </option>
-                            <option value="Offer-Rejected">Offer Rejected</option>
+                            <option value="Offer-Rejected">
+                                Offer Rejected
+                            </option>
+                            {{/select}}
                         </select>
                     </label>
                 </div>
@@ -85,6 +104,7 @@
                         type="text"
                         class="form-control"
                         id="applicationAddressInput"
+                        value="{{ application.location }}"
                     />
                 </div>
 

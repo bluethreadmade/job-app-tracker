@@ -1,13 +1,14 @@
 // require router function of express
 const router = require('express').Router();
 // require the user model
-const { Application } = require('../../models');
+const { Application, User } = require('../../models');
 
 // Create new application - /api/applications
 router.get('/', async (req, res) => {
     try {
         const applicationData = await Application.findAll({
             where: { user_id: req.session.userId },
+            include: [{ model: User }]
         });
 
         const applications = applicationData.map((application) => {
@@ -45,19 +46,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Get one application - /api/application/:id
-router.get('/:id', async (req, res) => {
-    try {
-        const appData = await Application.findByPk(req.params.id);
-        console.log(appData);
-        const application = appData.get({ plain: true });
 
-        res.render('single-app.hbs', { application });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
 
 // Update application - /api/application/:id
 router.put('/:id', async (req, res) => {
