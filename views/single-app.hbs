@@ -4,10 +4,20 @@
             {{!-- Header - Company & Position Section --}}
             <div class="d-flex mb-3">
                 <div class="me-auto p-2">
-                    <h3><b>{{application.position}}, {{application.company}}</b></h3>
+                    <h2>
+                        {{ application.position }}, {{ application.company }}
+                    </h2>
                 </div>
                 <div class="me-auto p-2">
-                    <h3><span class="badge badge-pill {{getStatusBadgeClass application.status}}">{{application.status}}</span></h3>
+                    {{!--
+                    <h3>
+                        <span
+                            class="badge badge-pill {{getStatusBadgeClass application.status}}"
+                        >
+                            {{ application.status }}
+                        </span>
+                    </h3>
+                    --}}
                 </div>
                 <div class="p-2">
                     <img src="/images/edit.svg" alt="Edit Icon" />
@@ -21,10 +31,15 @@
             {{!-- Job Posting Section --}}
             <div class="row justify-content-between">
                 <div class="col-6">
-                    <h3><b>Job Posting: {{application.link_to_posting}}</b></h3>
+                    <h3>Job Posting:</h3>
+                    <p class="fs-4">
+                        <a href="{{ application.link_to_posting }}">
+                            {{ application.link_to_posting }}
+                        </a>
+                    </p>
                 </div>
                 <div class="col-4">
-                    <h3><b>Interest Level: stars</b></h3>
+                    <h3>Interest Level: stars</h3>
                 </div>
             </div>
         </div>
@@ -32,7 +47,9 @@
             {{!-- Location Section --}}
             <div class="row justify-content-start">
                 <div class="col">
-                    <h3><b>Location: {{application.Location}}</b></h3>
+                    <h3>
+                        Location: {{ application.location }}
+                    </h3>
                 </div>
                 <div class="col">
                     <h3><b>work site pill</b></h3>
@@ -41,11 +58,15 @@
         </div>
         <div class="row align-items-start border-bottom">
             {{!-- Date Applied Section --}}
-            <h3><b>Date Applied: {{application.application_submitted_date}}</b></h3>
+            <h3>
+                    Date Applied: {{ application.application_submitted_date }}
+            </h3>
         </div>
         <div class="row align-items-start border-bottom">
             {{!-- Notes Section --}}
-            <h3><b>Notes: {{application.notes}}</b></h3>
+            <h3>
+                Notes: {{ application.notes }}
+            </h3>
         </div>
     </div>
 </section>
