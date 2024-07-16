@@ -2,7 +2,7 @@ module.exports = {
     // function to count applications 
     countApplications: async (user_id) => {
         try {
-            const count = await Application.count({
+            const count = await applications.count({
                 where: { user_id: user_id },
                 distinct: true, // Count only unique applications
             });
