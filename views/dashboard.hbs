@@ -1,107 +1,55 @@
 <section class="container-fluid d-flex justify-content-around flex-wrap w-100">
     <!-- Applications Submitted -->
     <div class="card m-4 w-30 flex-fill">
-        <div class="card-header">
-            <h4>Applications Submitted</h4>
-        </div>
-        <div class="card-body">
-            <h4>24</h4>
-        </div>
+    <div class="card-header">
+        <h4>Applications Submitted</h4>
     </div>
-    <!-- Interviews Scheduled -->
-    <div class="card m-4 w-30 flex-fill">
-        <div class="card-header">
-            <h4>Interviews Scheduled</h4>
-        </div>
-        <div class="card-body">
-            <h4>4</h4>
-        </div>
+    <div class="card-body">
+        <h4>{{applicationCount}}</h4>
     </div>
-    <!-- Offers Received -->
+    </div>
+{{!-- Interviews Scheduled --}}
     <div class="card m-4 w-30 flex-fill">
-        <div class="card-header">
-            <h4>Offers Received</h4>
-        </div>
-        <div class="card-body">
-            <h4>2</h4>
-        </div>
+    <div class="card-header">
+        <h4>Interviews Scheduled</h4>
+    </div>
+    <div class="card-body">
+        <h4>{{interviewCount}}</h4>
+    </div>
+    </div>
+{{!-- Offers Received --}}
+    <div class="card m-4 w-30 flex-fill">
+    <div class="card-header">
+        <h4>Offers Received</h4>
+    </div>
+    <div class="card-body">
+        <h4>{{offerCount}}</h4>
+    </div>
     </div>
 </section>
 
 <section class="container-xxl m-6 w-100" id="tableContainer">
     <section class="card p-0 mw-100">
-        <table class="table table-hover">
-            <div class="card-header">
-                <h4>Job Applications</h4>
-            </div>
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">Company</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{!--
-                <a>
-                    <tr>
-                        <td>Acme Inc.</td>
-                        <td>Temp Marketing Associate</td>
-                        <td>
-                            <span
-                                class="badge badge-pill bs-primary"
-                                style="background-color: orange"
-                            >
-                                Applied
-                            </span>
-                        </td>
-                    </tr>
-                </a>
-                <a>
-                    <tr>
-                        <td>Google</td>
-                        <td>Senior Marketing Manager</td>
-                        <td>
-                            <span
-                                class="badge badge-pill bs-success"
-                                style="background-color: green"
-                            >
-                                Offer Received
-                            </span>
-                        </td>
-                    </tr>
-                </a>
-                <a>
-                    <tr>
-                        <td>Microsoft</td>
-                        <td>Marketing Director</td>
-                        <td>
-                            <span
-                                class="badge badge-pill bs-danger"
-                                style="background-color: red"
-                            >
-                                Rejected
-                            </span>
-                        </td>
-                    </tr>
-                </a>
-                --}}
-                <a>
-                    {{#each applications as |app|}}
-                    <tr>
-                        <td>{{ app.company }}</td>
-                        <td>{{ app.position }}</td>
-                        <td>
-                            <span
-                                class="badge badge-pill {{getStatusBadgeClass status}}"
-                            >
-                                {{ status }}
-                            </span>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </a>
-            </tbody>
-        </table>
+    <table class="table table-hover">
+    <div class="card-header">
+        <h4>Job Applications</h4>
+    </div>
+    <thead class="thead-light">
+        <tr>
+        <th scope="col">Company</th>
+        <th scope="col">Position</th>
+        <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <a>{{#each applications as |app|}}
+        <tr>
+            <td>{{app.company}}</td>
+            <td>{{app.position}}</td>
+            <td><span class="badge bg-pill {{getStatusBadgeClass app.status}}">{{displayStatus app.status}}</span></td>
+        </tr>
+        {{/each}}</a>
+    </tbody>
+    </table>
     </section>
 </section>
