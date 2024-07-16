@@ -30,13 +30,15 @@ router.get('/applications/edit/:id', async (req, res) => {
 
     try {
         const appData = await Application.findByPk(req.params.id);
-        const application = appData.get({ plain: true});
+        const application = appData.get({ plain: true });
 
-        res.render('application', { loggedIn: req.session.loggedIn, application });
-    }catch(err) {
-
+        res.render('application', {
+            loggedIn: req.session.loggedIn,
+            application,
+        });
+    } catch (err) {
+        res.status(500).json('Something weont wrong!');
     }
-
 });
 
 // Get one application - application/:id

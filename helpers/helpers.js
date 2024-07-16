@@ -62,5 +62,5 @@ module.exports = {
                 return 'badge-primary';
         }
     },
-
+    eq: (a, b) => a === b,
 };

@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     try {
         const applicationData = await Application.findAll({
             where: { user_id: req.session.userId },
-            include: [{ model: User }]
+            include: [{ model: User }],
         });
 
         const applications = applicationData.map((application) => {
@@ -45,8 +45,6 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-
 
 // Update application - /api/application/:id
 router.put('/:id', async (req, res) => {
