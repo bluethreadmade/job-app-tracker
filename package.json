@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.0.4",
     "dotenv": "^8.2.0",
@@ -20,10 +21,10 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "fullcalendar": "^6.1.15",
+    "helmet": "^7.1.0",
     "path": "^0.12.7",
     "pg": "^8.11.3",
-    "sequelize": "^6.3.5",
-    "helmet": "^7.1.0"
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
