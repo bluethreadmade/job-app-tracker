@@ -22,28 +22,28 @@ module.exports = {
                 return 'Applied';
         }
     },
-    
+
     // function to assign each status a badge class 
     getStatusBadgeClass: (status) => {
         switch (status) {
             case 1:
-                return 'badge-primary';
+                return 'bg-primary';
             case 2:
-                return 'badge-info';
+                return 'bg-info';
             case 3:
-                return 'badge-warning';
+                return 'bg-warning';
             case 4:
-                return 'badge-dark';
+                return 'bg-dark';
             case 5:
-                return 'badge-success';
+                return 'bg-success';
             case 6:
-                return 'badge-success';
+                return 'bg-success';
             case 7:
-                return 'badge-dark';
+                return 'bg-dark';
             case 8:
-                return 'badge-danger';
+                return 'bg-danger';
             default:
-                return 'badge-primary';
+                return 'bg-primary';
         }
     }
 };
