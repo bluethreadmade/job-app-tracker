@@ -27,7 +27,7 @@ router.post('/signup', async (req, res) => {
 // login - /api/users/login
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({
+        const userData = await User.scope('withPassword').findOne({
             where: { email: req.body.email },
         });
 
@@ -76,8 +76,5 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
-
-
-
 
 module.exports = router;
