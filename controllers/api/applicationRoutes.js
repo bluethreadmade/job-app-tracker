@@ -4,6 +4,24 @@ const router = require('express').Router();
 const { Application } = require('../../models');
 
 // Create new application - /api/applications
+router.get('/', async (req, res) => {
+    try {
+        const applicationData = await Application.findAll({
+            where: { user_id: req.session.userId },
+        });
+
+        const applications = applicationData.map((application) => {
+            return application.get({ plain: true });
+        });
+
+        res.status(200).json(applications);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+// Create new application - /api/applications
 router.post('/', async (req, res) => {
     try {
         const applicationData = await Application.create({
@@ -17,7 +35,7 @@ router.post('/', async (req, res) => {
             response_received_date: req.body.response_received_date,
             application_submitted_date: req.body.application_submitted_date,
             work_site: req.body.work_site,
-            user_id: req.body.user_id,
+            user_id: req.session.userId,
         });
 
         res.status(200).json(applicationData);

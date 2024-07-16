@@ -9,7 +9,6 @@ const applicationRoutes = require('./applicationRoutes');
 
 router.use('/users', userRoutes);
 router.use('/interviews', interviewRoutes);
-router.use('/application', applicationRoutes);
-
+router.use('/applications', applicationRoutes);
 
 module.exports = router;
