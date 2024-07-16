@@ -47,7 +47,7 @@ router.get('/interviews', async (req, res) => {
         return;
     }
 
-    res.render('interviews', { applications, loggedIn: req.session.loggedIn });
+    res.render('interviews', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/login', (req, res) => {
