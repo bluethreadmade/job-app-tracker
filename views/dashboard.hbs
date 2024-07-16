@@ -5,7 +5,7 @@
         <h4>Applications Submitted</h4>
     </div>
     <div class="card-body">
-        <h4>{{countApplications application.user_id}}</h4>
+        <h4>{{applicationCount}}</h4>
     </div>
     </div>
 {{!-- Interviews Scheduled --}}
@@ -14,7 +14,7 @@
         <h4>Interviews Scheduled</h4>
     </div>
     <div class="card-body">
-        <h4>{{countInterviews application.status}}</h4>
+        <h4>{{interviewCount}}</h4>
     </div>
     </div>
 {{!-- Offers Received --}}
@@ -23,7 +23,7 @@
         <h4>Offers Received</h4>
     </div>
     <div class="card-body">
-        <h4>{{countOffers application.status}}</h4>
+        <h4>{{pfferCount}}</h4>
     </div>
     </div>
 </section>
@@ -44,9 +44,9 @@
     <tbody>
         <a>{{#each applications as |app|}}
         <tr>
-            <td>{{application.company}}</td>
-            <td>{{application.position}}</td>
-            <td><span class="badge badge-pill {{getStatusBadgeClass status}}">{{status}}</span></td>
+            <td>{{app.company}}</td>
+            <td>{{app.position}}</td>
+            <td><span class="badge badge-pill {{getStatusBadgeClass app.status}}">{{app.status}}</span></td>
         </tr>
         {{/each}}</a>
     </tbody>

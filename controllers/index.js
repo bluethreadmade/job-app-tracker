@@ -37,7 +37,24 @@ router.get('/dashboard', async (req, res) => {
         application.get({ plain: true })
     );
 
-    res.render('dashboard', { applications, loggedIn: req.session.loggedIn });
+    // count applications, interviews, offers
+    const applicationCount = Application.count({
+        where: { user_id: req.session.userId },
+        distinct: true, // Count only unique applications
+    });
+    
+    const interviewCount = Application.count({
+        where: { status: 2 },
+        distinct: true,   
+    });
+
+    const offerCount = Application.count({
+        where: { status: 5 },
+        distinct: true,   
+    });
+
+    // pass counts
+    res.render('dashboard', { applications, loggedIn: req.session.loggedIn, applicationCount, interviewCount, offerCount });
 });
 
 router.get('/interviews', async (req, res) => {

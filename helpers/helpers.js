@@ -1,8 +1,10 @@
+const { Application } = require('../models');
+
 module.exports = {
     // function to count applications 
     countApplications: async (user_id) => {
         try {
-            const count = await applications.count({
+            const count = await Application.count({
                 where: { user_id: user_id },
                 distinct: true, // Count only unique applications
             });
@@ -42,7 +44,7 @@ module.exports = {
     },
 
     // function to assign each status a badge class 
-    getStatusBadgeClass: async (status) => {
+    getStatusBadgeClass: (status) => {
         switch (status) {
             case 'Applied':
                 return 'badge-primary';
