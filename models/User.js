@@ -34,7 +34,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [6, 14],
+                len: [8, 64],
                 isAlphanumeric: true,
             },
         },
@@ -56,6 +56,18 @@ User.init(
                     );
                 }
                 return updatedUserData;
+            },
+        },
+        defaultScope: {
+            attributes: {
+                exclude: ['password'],
+            },
+        },
+        scopes: {
+            withPassword: {
+                attributes: {
+                    include: ['password'],
+                },
             },
         },
         sequelize,
