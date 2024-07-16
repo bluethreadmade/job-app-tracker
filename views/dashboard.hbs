@@ -46,7 +46,7 @@
         <tr>
             <td>{{app.company}}</td>
             <td>{{app.position}}</td>
-            <td><span class="badge badge-pill {{getStatusBadgeClass app.status}}">{{app.status}}</span></td>
+            <td><span class="badge badge-pill {{getStatusBadgeClass app.status}}">{{displayStatus app.status}}</span></td>
         </tr>
         {{/each}}</a>
     </tbody>
