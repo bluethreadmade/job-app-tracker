@@ -44,21 +44,6 @@ const seedDatabase = async () => {
 
     // Store the applications on the database
     await Application.bulkCreate(applications);
-
-    const interviews = [];
-    for (let i = 0; i < 10; i++) {
-        interviews.push({
-            date: faker.date.soon(),
-            address: `${fakerEN_US.location.streetAddress()}, ${fakerEN_US.location.city()}, ${fakerEN_US.location.state(
-                { abbreviated: true }
-            )}`,
-            videoLink: null,
-            interviewer: faker.person.fullName(),
-            application_id: Math.floor(Math.random() * applications.length) + 1,
-        });
-    }
-
-    await Interview.bulkCreate(interviews);
     process.exit(0);
 };
 
