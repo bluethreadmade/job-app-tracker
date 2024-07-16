@@ -38,17 +38,17 @@ router.get('/dashboard', async (req, res) => {
     );
 
     // count applications, interviews, offers
-    const applicationCount = Application.count({
+    const applicationCount = await Application.count({
         where: { user_id: req.session.userId },
         distinct: true, // Count only unique applications
     });
     
-    const interviewCount = Application.count({
+    const interviewCount = await Application.count({
         where: { status: 2 },
         distinct: true,   
     });
 
-    const offerCount = Application.count({
+    const offerCount = await Application.count({
         where: { status: 5 },
         distinct: true,   
     });
