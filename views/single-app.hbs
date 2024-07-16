@@ -10,8 +10,10 @@
                 </div>
                 <div class="me-auto p-2">
                     <h3>
-                        <span class="badge bg-pill {{getStatusBadgeClass application.status}}">
-                            {{displayStatus app.status}}
+                        <span
+                            class="badge bg-pill {{getStatusBadgeClass application.status}}"
+                        >
+                            {{displayStatus application.status}}
                         </span>
                     </h3>
                 </div>
@@ -46,7 +48,12 @@
                     <h3>Location: {{ application.location }}</h3>
                 </div>
                 <div class="col">
-                    <h3><b>work site pill</b></h3>
+                    <h3>
+                        <span class="badge bg-pill {{getWorkSiteBadgeClass application.work_site}}"
+                        >
+                            {{displayWorkSite application.work_site}}
+                        </span>
+                    </h3>
                 </div>
             </div>
         </div>
