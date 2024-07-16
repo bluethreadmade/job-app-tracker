@@ -39,7 +39,6 @@ router.get('/dashboard', async (req, res) => {
 
     // count applications, interviews, offers
     const applicationCount = await Application.count({
-        where: { user_id: req.session.userId },
         distinct: true, // Count only unique applications
     });
     

@@ -23,7 +23,7 @@
         <h4>Offers Received</h4>
     </div>
     <div class="card-body">
-        <h4>{{pfferCount}}</h4>
+        <h4>{{offerCount}}</h4>
     </div>
     </div>
 </section>
@@ -42,11 +42,11 @@
         </tr>
     </thead>
     <tbody>
-        <a>{{#each applications as |app|}}
+        <a>{{#each applications as |application|}}
         <tr>
-            <td>{{app.company}}</td>
-            <td>{{app.position}}</td>
-            <td><span class="badge badge-pill {{getStatusBadgeClass app.status}}">{{app.status}}</span></td>
+            <td>{{application.company}}</td>
+            <td>{{application.position}}</td>
+            <td><span class="badge badge-pill {{getStatusBadgeClass application.status}}">{{application.status}}</span></td>
         </tr>
         {{/each}}</a>
     </tbody>
