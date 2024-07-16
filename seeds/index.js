@@ -59,6 +59,11 @@ const seedDatabase = async () => {
     }
 
     await Interview.bulkCreate(interviews);
+
+    console.log(
+        '---------- GENERATED DATA -----------\n',
+        JSON.stringify({ users, applications, interviews }, null, 4)
+    );
     process.exit(0);
 };
 
