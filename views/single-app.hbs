@@ -2,7 +2,7 @@
     <div class="card border row-gap-4 p-4 m-4">
         <div class="row align-items-start border-bottom">
             {{!-- Header - Company & Position Section --}}
-            <div class="d-flex mb-3">
+            <div class="d-flex mb-3 align-items-center">
                 <div class="me-auto p-2">
                     <h2>
                         {{ application.position }}, {{ application.company }}
@@ -10,8 +10,10 @@
                 </div>
                 <div class="me-auto p-2">
                     <h3>
-                        <spanclass="badge bg-pill {{getStatusBadgeClass application.status}}">
-                            {{ application.status }}
+                        <span
+                            class="badge bg-pill {{getStatusBadgeClass application.status}}"
+                        >
+                            {{displayStatus application.status}}
                         </span>
                     </h3>
                 </div>
@@ -46,7 +48,12 @@
                     <h3>Location: {{ application.location }}</h3>
                 </div>
                 <div class="col">
-                    <h3><b>work site pill</b></h3>
+                    <h3>
+                        <span class="badge bg-pill {{getWorkSiteBadgeClass application.work_site}}"
+                        >
+                            {{displayWorkSite application.work_site}}
+                        </span>
+                    </h3>
                 </div>
             </div>
         </div>

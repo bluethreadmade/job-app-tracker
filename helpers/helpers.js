@@ -64,4 +64,33 @@ module.exports = {
         }
     },
 
+    // function to display work site in badge  
+    displayWorkSite: (work_site) => {
+        switch (work_site) {
+            case 1:
+                return 'On-Site';
+            case 2:
+                return 'Hybrid';
+            case 3:
+                return 'Remote';
+            default:
+                return 'On-Site';
+        }
+    },
+
+    // function to assign each work site a badge class 
+    getWorkSiteBadgeClass: (work_site) => {
+        switch (work_site) {
+            case 1:
+                return 'bg-secondary';
+            case 2:
+                return 'bg-secondary';
+            case 3:
+                return 'bg-secondary';
+            default:
+                return 'bg-secondary';
+                return 'bg-secondary';
+        }
+    },
+
 };
