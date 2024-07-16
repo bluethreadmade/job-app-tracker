@@ -45,7 +45,7 @@
         {{#each applications as |app|}}
         <tr>
             <td>{{app.company}}</td>
-            <td><a href="/api/application/{{app.id}}">{{app.position}}</a></td>
+            <td><a href="/api/applications/{{app.id}}">{{app.position}}</a></td>
             <td><span class="badge bg-pill {{getStatusBadgeClass app.status}}">{{displayStatus app.status}}</span></td>
         </tr>
         {{/each}}
