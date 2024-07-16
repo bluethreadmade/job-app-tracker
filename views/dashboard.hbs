@@ -42,11 +42,11 @@
         </tr>
     </thead>
     <tbody>
-        <a>{{#each applications as |application|}}
+        <a>{{#each applications as |app|}}
         <tr>
-            <td>{{application.company}}</td>
-            <td>{{application.position}}</td>
-            <td><span class="badge badge-pill {{getStatusBadgeClass application.status}}">{{application.status}}</span></td>
+            <td>{{app.company}}</td>
+            <td>{{app.position}}</td>
+            <td><span class="badge badge-pill {{getStatusBadgeClass app.status}}">{{app.status}}</span></td>
         </tr>
         {{/each}}</a>
     </tbody>
