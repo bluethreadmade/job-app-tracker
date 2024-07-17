@@ -152,13 +152,15 @@
 
                     <!-- Create the editor container -->
                     <div id="editor">
-                        <p>{{#if application}}{{ application.notes }}{{else}}Your Notes Here{{/if}}</p>
+                        <p>
+                            {{#if application}}{{ application.notes
+                            }}{{else}}Your Notes Here{{/if}}
+                        </p>
                     </div>
+                    <button type="submit" class="btn btn-primary">
+                        {{#if application}}Update{{else}}Submit{{/if}}
+                    </button>
                 </div>
-
-                <button type="submit" class="btn btn-primary">
-                    {{#if application}}Update{{else}}Submit{{/if}}
-                </button>
             </form>
         </div>
 
@@ -170,7 +172,7 @@
     </div>
 </section>
 
-<script src="/js/application.js"></script>
+
 
 <!-- Include the Quill library -->
 <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
@@ -181,3 +183,5 @@
         theme: 'snow',
     });
 </script>
+
+<script src="/js/application.js"></script>
