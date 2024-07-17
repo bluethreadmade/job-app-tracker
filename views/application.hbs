@@ -140,26 +140,17 @@
                     <label for="applicationNotesInput" class="form-label">
                         Additional Notes:
                     </label>
-                    {{!--
-                    <textarea
-                        type="text"
-                        class="form-control"
-                        id="applicationNotesInput"
-                        name="notes"
-                        value="{{ application.notes }}"
-                    ></textarea>
-                    --}}
-
-                    <!-- Create the editor container -->
-                    <div id="editor">
-                        <p>
-                            {{#if application}}{{{ application.notes
-                            }}}{{else}}{{/if}}
-                        </p>
+                    <div class="notesContainer">
+                        <!-- Create the quill editor container -->
+                        <div id="editor">
+                            <p>
+                                {{#if application}}{{{ application.notes}}}{{else}}{{/if}}
+                            </p>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2 col-12">
+                            {{#if application}}Update{{else}}Submit{{/if}}
+                        </button>
                     </div>
-                    <button type="submit" class="btn btn-primary">
-                        {{#if application}}Update{{else}}Submit{{/if}}
-                    </button>
                 </div>
             </form>
         </div>
@@ -171,8 +162,6 @@
         </div>
     </div>
 </section>
-
-
 
 <!-- Include the Quill library -->
 <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
