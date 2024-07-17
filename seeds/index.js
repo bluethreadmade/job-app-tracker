@@ -16,6 +16,9 @@ const seedDatabase = async () => {
         });
     }
 
+    // Add an admin user
+    users.push({ email: 'admin@example.com', password: 'admin123' });
+
     // Store the users on the database
     await User.bulkCreate(users, { individualHooks: true });
 
