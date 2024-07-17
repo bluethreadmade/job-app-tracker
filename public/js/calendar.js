@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
+    let calendarEl = document.getElementById('calendar');
+    let calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         initialDate: '2024-07-07',
         headerToolbar: {
@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('application-form').addEventListener('submit', function(e) {
         e.preventDefault();
 
-        var title = document.getElementById('interviewPositionInput').value;
-        var date = document.getElementById('interviewDateInput').value;
-        var time = document.getElementById('interviewTimeInput').value;
-        var videoLink = document.getElementById('interviewVideoLinkInput').value;
+        let title = document.getElementById('interviewPositionInput').value;
+        let date = document.getElementById('interviewDateInput').value;
+        let time = document.getElementById('interviewTimeInput').value;
+        let videoLink = document.getElementById('interviewVideoLinkInput').value;
 
-        var formattedDate = formatDate(date);
-        var start = formattedDate + 'T' + time;
+        let formattedDate = formatDate(date);
+        let start = formattedDate + 'T' + time;
 
 
         if (videoLink && !videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
