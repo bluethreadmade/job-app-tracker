@@ -46,14 +46,14 @@
                         required
                     >
                         {{#select application.status}}
-                        <option value="1">Applied</option>
-                        <option value="2">Interview Scheduled</option>
-                        <option value="3">Interviewed</option>
-                        <option value="4">On Hold</option>
-                        <option value="5">Offer Received</option>
-                        <option value="6">Offer Accepted</option>
-                        <option value="7">Application Rejected</option>
-                        <option value="8">Offer Rejected</option>
+                        <option value="1">{{displayStatus 1}}</option>
+                        <option value="2">{{displayStatus 2}}</option>
+                        <option value="3">{{displayStatus 3}}</option>
+                        <option value="4">{{displayStatus 4}}</option>
+                        <option value="5">{{displayStatus 5}}</option>
+                        <option value="6">{{displayStatus 6}}</option>
+                        <option value="7">{{displayStatus 7}}</option>
+                        <option value="8">{{displayStatus 8}}</option>
                         {{/select}}
                     </select>
                 </div>
@@ -69,9 +69,9 @@
                         required
                     >
                         {{#select application.interest_level}}
-                        <option value="1">Onsite</option>
-                        <option value="2">Hybrid</option>
-                        <option value="3">Remote</option>
+                        <option value="1">{{displayWorkSite 1}}</option>
+                        <option value="2">{{displayWorkSite 2}}</option>
+                        <option value="3">{{displayWorkSite 3}}</option>
                         {{/select}}
                     </select>
                 </div>

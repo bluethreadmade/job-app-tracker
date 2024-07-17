@@ -63,6 +63,7 @@ async function handleDelete(event) {
 
 function handleEdit() {
     const applicationId = window.location.pathname.split('/')[2];
+    console.log(applicationId);
     window.location.replace(`/applications/edit/${applicationId}`);
 }
 
@@ -77,5 +78,5 @@ if (deleteApplicationBtn) {
 }
 
 if (editApplicationBtn) {
-    editApplicationBtn.addEventListener('client', handleEdit);
+    editApplicationBtn.addEventListener('click', handleEdit);
 }
