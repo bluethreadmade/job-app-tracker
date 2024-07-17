@@ -140,6 +140,7 @@
                     <label for="applicationNotesInput" class="form-label">
                         Additional Notes:
                     </label>
+                    {{!--
                     <textarea
                         type="text"
                         class="form-control"
@@ -147,6 +148,23 @@
                         name="notes"
                         value="{{ application.notes }}"
                     ></textarea>
+                    --}}
+
+                    <!-- Create the toolbar container -->
+                    <div id="toolbar">
+                        <button class="ql-bold">Bold</button>
+                        <button class="ql-italic">Italic</button>
+                    </div>
+                    <!-- Create the editor container -->
+                    <div id="editor">
+                        <p>Hello World!</p>
+                        <p>
+                            Some initial
+                            <strong>bold</strong>
+                            text
+                        </p>
+                        <p><br /></p>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">
@@ -164,3 +182,13 @@
 </section>
 
 <script src="/js/application.js"></script>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+    const quill = new Quill('#editor', {
+        theme: 'snow',
+    });
+</script>
