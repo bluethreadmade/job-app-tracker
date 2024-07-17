@@ -24,15 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
         var formattedDate = formatDate(date);
         var start = formattedDate + 'T' + time;
 
-        // Check if videoLink is not empty and does not start with 'http://'
+
         if (videoLink && !videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
-            videoLink = 'https://' + videoLink; // Prepend 'https://' if not already present
+            videoLink = 'https://' + videoLink; 
         }
 
         calendar.addEvent({
             title: title,
             start: start,
-            url: videoLink  // Ensure videoLink is the full URL
+            url: videoLink  // Ensure videoLink is the full URL function below:
         });
 
         document.getElementById('interviewPositionInput').value = '';
@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function formatDate(inputDate) {
-        var date = new Date(inputDate);
-        var month = ('0' + (date.getMonth() + 1)).slice(-2);
-        var day = ('0' + date.getDate()).slice(-2);
-        var year = date.getFullYear();
+        let date = new Date(inputDate);
+        let month = ('0' + (date.getMonth() + 1)).slice(-2);
+        let day = ('0' + date.getDate()).slice(-2);
+        let year = date.getFullYear();
 
         return [year, month, day].join('-');
     }
