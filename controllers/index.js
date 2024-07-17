@@ -37,7 +37,7 @@ router.get('/applications/edit/:id', async (req, res) => {
             application,
         });
     } catch (err) {
-        res.status(500).json('Something weont wrong!');
+        res.status(500).json('Something went wrong!');
     }
 });
 
@@ -49,10 +49,12 @@ router.get('/applications/:id', async (req, res) => {
     }
     try {
         const appData = await Application.findByPk(req.params.id);
-        console.log(appData);
         const application = appData.get({ plain: true });
 
-        res.render('single-app.hbs', { application });
+        res.render('single-app.hbs', {
+            loggedIn: req.session.loggedIn,
+            application,
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
