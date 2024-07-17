@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     res.render('homepage', { loggedIn: req.session.loggedIn });
 });
 
-router.get('/application', (req, res) => {
+router.get('/applications', (req, res) => {
     // Check that the user is logged in!
     if (!req.session.loggedIn) {
         res.redirect('/');
@@ -42,7 +42,7 @@ router.get('/applications/edit/:id', async (req, res) => {
 });
 
 // Get one application - application/:id
-router.get('/application/:id', async (req, res) => {
+router.get('/applications/:id', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/');
         return;
@@ -75,7 +75,30 @@ router.get('/dashboard', async (req, res) => {
         application.get({ plain: true })
     );
 
-    res.render('dashboard', { applications, loggedIn: req.session.loggedIn });
+    // count applications, interviews, offers
+    const applicationCount = await Application.count({
+        where: { user_id: req.session.userId },
+        distinct: true, // Count only unique applications
+    });
+
+    const interviewCount = await Application.count({
+        where: { user_id: req.session.userId, status: 2 },
+        distinct: true,
+    });
+
+    const offerCount = await Application.count({
+        where: { user_id: req.session.userId, status: 5 },
+        distinct: true,
+    });
+
+    // pass counts
+    res.render('dashboard', {
+        applications,
+        loggedIn: req.session.loggedIn,
+        applicationCount,
+        interviewCount,
+        offerCount,
+    });
 });
 
 router.get('/interviews', async (req, res) => {
@@ -85,7 +108,7 @@ router.get('/interviews', async (req, res) => {
         return;
     }
 
-    res.render('interviews', { applications, loggedIn: req.session.loggedIn });
+    res.render('interviews', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/login', (req, res) => {

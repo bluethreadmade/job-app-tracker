@@ -3,6 +3,15 @@ const router = require('express').Router();
 // require the user model
 const { Application, User } = require('../../models');
 
+// Check that the user is logged in for all of these routes
+router.use('/', (req, res, next) => {
+    if (!req.session.userId) {
+        return res.status(401).end();
+    }
+
+    next();
+});
+
 // Create new application - /api/applications
 router.get('/', async (req, res) => {
     try {
@@ -25,6 +34,8 @@ router.get('/', async (req, res) => {
 // Create new application - /api/applications
 router.post('/', async (req, res) => {
     try {
+        console.log(req.body);
+
         const applicationData = await Application.create({
             company: req.body.company,
             position: req.body.position,
@@ -34,7 +45,6 @@ router.post('/', async (req, res) => {
             interest_level: req.body.interest_level,
             notes: req.body.notes,
             response_received_date: req.body.response_received_date,
-            application_submitted_date: req.body.application_submitted_date,
             work_site: req.body.work_site,
             user_id: req.session.userId,
         });

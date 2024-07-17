@@ -1,65 +1,66 @@
 module.exports = {
-    // function to count applications
-    countApplications: async (user_id) => {
-        try {
-            const count = await Application.count({
-                where: { user_id: user_id },
-                distinct: true, // Count only unique applications
-            });
-            return count;
-        } catch (error) {
-            console.error('Error counting user applications:', error);
-            throw error;
-        }
-    },
-
-    // function to count scheduled interviews
-    countInterviews: async (status) => {
-        try {
-            const count = await Application.count({
-                where: { status: 2 },
-                distinct: true,
-            });
-            return count;
-        } catch (error) {
-            console.error('Error counting interviews scheduled:', error);
-            throw error;
-        }
-    },
-
-    // function to count offers received
-    countOffers: async (status) => {
-        try {
-            const count = await Application.count({
-                where: { status: 5 },
-                distinct: true,
-            });
-            return count;
-        } catch (error) {
-            console.error('Error counting offers received:', error);
-            throw error;
-        }
-    },
-
-    // function to assign each status a badge class
-    getStatusBadgeClass: async (status) => {
+    // function to display status in badge  
+    displayStatus: (status) => {
         switch (status) {
-            case 'Applied':
-                return 'badge-primary';
-            case 'Interview-Scheduled':
-                return 'badge-info';
-            case 'Interviewed':
-                return 'badge-warning';
-            case 'On-Hold':
-                return 'badge-dark';
-            case 'Offer-Received':
-                return 'badge-success';
-            case 'Offer-Accepted':
-                return 'badge-success';
-            case 'Application-Rejected':
-                return 'badge-danger';
+            case 1:
+                return 'Applied';
+            case 2:
+                return 'Interview Scheduled';
+            case 3:
+                return 'Interviewed';
+            case 4:
+                return 'On Hold';
+            case 5:
+                return 'Offer Received';
+            case 6:
+                return 'Offer Accepted';
+            case 7:
+                return 'Offer Rejected';
+            case 8:
+                return 'Application Rejected';
             default:
-                return 'badge-primary';
+                return 'Applied';
+        }
+    },
+
+    // function to assign each status a badge class 
+    getStatusBadgeClass: (status) => {
+        switch (status) {
+            case 1:
+                return 'bg-primary';
+            case 2:
+                return 'bg-info';
+            case 3:
+                return 'bg-warning';
+            case 4:
+                return 'bg-dark';
+            case 5:
+                return 'bg-success';
+            case 6:
+                return 'bg-success';
+            case 7:
+                return 'bg-dark';
+            case 8:
+                return 'bg-danger';
+            case 1:
+                return 'bg-primary';
+            case 2:
+                return 'bg-info';
+            case 3:
+                return 'bg-warning';
+            case 4:
+                return 'bg-dark';
+            case 5:
+                return 'bg-success';
+            case 6:
+                return 'bg-success';
+            case 7:
+                return 'bg-dark';
+            case 8:
+                return 'bg-danger';
+            default:
+                return 'bg-primary';
+                return 'bg-primary';
         }
     },
     eq: (a, b) => a === b,

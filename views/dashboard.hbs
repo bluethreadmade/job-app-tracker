@@ -5,25 +5,25 @@
             <h4>Applications Submitted</h4>
         </div>
         <div class="card-body">
-            <h4>24</h4>
+            <h4>{{ applicationCount }}</h4>
         </div>
     </div>
-    <!-- Interviews Scheduled -->
+    {{!-- Interviews Scheduled --}}
     <div class="card m-4 w-30 flex-fill">
         <div class="card-header">
             <h4>Interviews Scheduled</h4>
         </div>
         <div class="card-body">
-            <h4>4</h4>
+            <h4>{{ interviewCount }}</h4>
         </div>
     </div>
-    <!-- Offers Received -->
+    {{!-- Offers Received --}}
     <div class="card m-4 w-30 flex-fill">
         <div class="card-header">
             <h4>Offers Received</h4>
         </div>
         <div class="card-body">
-            <h4>2</h4>
+            <h4>{{ offerCount }}</h4>
         </div>
     </div>
 </section>
@@ -42,65 +42,23 @@
                 </tr>
             </thead>
             <tbody>
-                {{!--
-                <a>
-                    <tr>
-                        <td>Acme Inc.</td>
-                        <td>Temp Marketing Associate</td>
-                        <td>
-                            <span
-                                class="badge badge-pill bs-primary"
-                                style="background-color: orange"
-                            >
-                                Applied
-                            </span>
-                        </td>
-                    </tr>
-                </a>
-                <a>
-                    <tr>
-                        <td>Google</td>
-                        <td>Senior Marketing Manager</td>
-                        <td>
-                            <span
-                                class="badge badge-pill bs-success"
-                                style="background-color: green"
-                            >
-                                Offer Received
-                            </span>
-                        </td>
-                    </tr>
-                </a>
-                <a>
-                    <tr>
-                        <td>Microsoft</td>
-                        <td>Marketing Director</td>
-                        <td>
-                            <span
-                                class="badge badge-pill bs-danger"
-                                style="background-color: red"
-                            >
-                                Rejected
-                            </span>
-                        </td>
-                    </tr>
-                </a>
-                --}}
-                <a>
-                    {{#each applications as |app|}}
-                    <tr>
-                        <td>{{ app.company }}</td>
-                        <td>{{ app.position }}</td>
-                        <td>
-                            <span
-                                class="badge badge-pill {{getStatusBadgeClass status}}"
-                            >
-                                {{ status }}
-                            </span>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </a>
+                {{#each applications as |app|}}
+                <tr>
+                    <td>{{ app.company }}</td>
+                    <td>
+                        <a href="/applications/{{ app.id }}">
+                            {{ app.position }}
+                        </a>
+                    </td>
+                    <td>
+                        <span
+                            class="badge bg-pill {{getStatusBadgeClass app.status}}"
+                        >
+                            {{displayStatus app.status}}
+                        </span>
+                    </td>
+                </tr>
+                {{/each}}
             </tbody>
         </table>
     </section>

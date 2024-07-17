@@ -17,6 +17,7 @@
                         id="applicationInput"
                         name="company"
                         value="{{ application.company }}"
+                        required
                     />
                 </div>
 
@@ -30,6 +31,7 @@
                         id="applicationPositionInput"
                         name="position"
                         value="{{ application.position }}"
+                        required
                     />
                 </div>
 
@@ -41,6 +43,7 @@
                         id="applicationStatusInput"
                         class="form-select"
                         name="status"
+                        required
                     >
                         {{#select application.status}}
                         <option value="1">Applied</option>
@@ -63,6 +66,7 @@
                         id="applicationWorkSettingInput"
                         class="form-select"
                         name="interest_level"
+                        required
                     >
                         {{#select application.interest_level}}
                         <option value="Onsite">Onsite</option>

@@ -11,6 +11,10 @@
     font-family: 'Titillium Web', sans-serif;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 /* Font sizes for homepage */
 
 h1 {
@@ -27,15 +31,15 @@ h2 {
     margin-bottom: 30px;
 }
 
-h4 {
-    /* margin-bottom: 30px; */
-}
-
 .fade-bg {
     background-color: var(--tertiary);
 }
 
 /* end of the homepage design */
+
+a {
+    color: black;
+}
 
 /* star rating design css  */
 
