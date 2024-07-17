@@ -49,7 +49,6 @@ router.get('/applications/:id', async (req, res) => {
     }
     try {
         const appData = await Application.findByPk(req.params.id);
-        console.log(appData);
         const application = appData.get({ plain: true });
 
         res.render('single-app.hbs', { application });
