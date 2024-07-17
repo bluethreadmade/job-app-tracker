@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay',
         },
-        events: [],
+        events: loadEventsFromStorage(), 
     });
 
     calendar.render();
@@ -21,35 +21,31 @@ document.addEventListener('DOMContentLoaded', function () {
             let title = document.getElementById('interviewPositionInput').value;
             let date = document.getElementById('interviewDateInput').value;
             let time = document.getElementById('interviewTimeInput').value;
-            let videoLink = document.getElementById(
-                'interviewVideoLinkInput'
-            ).value;
+            let videoLink = document.getElementById('interviewVideoLinkInput').value;
 
             let formattedDate = formatDate(date);
             let start = formattedDate + 'T' + time;
 
-            if (
-                videoLink &&
-                !videoLink.startsWith('http://') &&
-                !videoLink.startsWith('https://')
-            ) {
+            if (videoLink && !videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
                 videoLink = 'https://' + videoLink;
             }
 
-            calendar.addEvent({
+            let newEvent = {
                 title: title,
                 start: start,
-                url: videoLink, // Ensure videoLink is the full URL function below:
-            });
+                url: videoLink,
+            };
 
+            calendar.addEvent(newEvent);
+            saveEventToStorage(newEvent); // Save event to localStorage
+
+            // Clear input fields
             document.getElementById('interviewPositionInput').value = '';
             document.getElementById('interviewDateInput').value = '';
             document.getElementById('interviewTimeInput').value = '';
             document.getElementById('interviewVideoLinkInput').value = '';
 
             alert('Interview added successfully!');
-
-            calendar.render();
         });
 
     function formatDate(inputDate) {
@@ -59,5 +55,16 @@ document.addEventListener('DOMContentLoaded', function () {
         let year = date.getFullYear();
 
         return [year, month, day].join('-');
+    }
+
+    function loadEventsFromStorage() {
+        let events = localStorage.getItem('calendarEvents');
+        return events ? JSON.parse(events) : [];
+    }
+
+    function saveEventToStorage(event) {
+        let events = loadEventsFromStorage();
+        events.push(event);
+        localStorage.setItem('calendarEvents', JSON.stringify(events));
     }
 });
