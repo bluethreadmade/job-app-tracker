@@ -33,19 +33,11 @@ router.get('/', async (req, res) => {
 
 // Create new application - /api/applications
 router.post('/', async (req, res) => {
-    try {
-        console.log(req.body);
+    console.log(req.body);
 
+    try {
         const applicationData = await Application.create({
-            company: req.body.company,
-            position: req.body.position,
-            link_to_posting: req.body.link_to_posting,
-            status: req.body.status,
-            location: req.body.location,
-            interest_level: req.body.interest_level,
-            notes: req.body.notes,
-            response_received_date: req.body.response_received_date,
-            work_site: req.body.work_site,
+            ...req.body,
             user_id: req.session.userId,
         });
 

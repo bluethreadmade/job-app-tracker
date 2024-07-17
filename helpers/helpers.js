@@ -14,7 +14,6 @@ module.exports = {
 
         return statuses[status - 1] || 'Applied';
     },
-
     // Function to assign each status a badge class
     getStatusBadgeClass: (status) => {
         const backgrounds = [
@@ -39,7 +38,6 @@ module.exports = {
         const backgrounds = ['bg-secondary', 'bg-secondary', 'bg-secondary'];
         return backgrounds[work_site - 1] || 'bg-secondary';
     },
-
     // function to format the date to Month Day Year
     dateFormat: (given_date) => {
         return given_date.toDateString().split(' ').splice(1).join(' ');
@@ -48,4 +46,5 @@ module.exports = {
     displayStars: (interest_level) => {
         return new Array(interest_level).fill('★').join(' ');
     },
+    eq: (a, b) => a === b,
 };

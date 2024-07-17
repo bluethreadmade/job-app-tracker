@@ -11,12 +11,17 @@ async function handleSubmitApplication(e) {
     // Determine if this should be an edit request or not
     const isEdit = window.location.pathname.includes('/edit/');
     const applicationId = isEdit && window.location.pathname.split('/')[3];
-    const formData = new FormData(e.target);
+    // Convert form data from the form to JSON
+    const formData = Object.fromEntries(new FormData(e.target));
 
+    // If we're editing data ...
     if (isEdit && applicationId) {
         const request = await fetch('/api/applications/' + applicationId, {
             method: 'PUT',
-            body: formData,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
         });
 
         if (request.ok) {
@@ -26,9 +31,12 @@ async function handleSubmitApplication(e) {
         return;
     }
 
-    const request = await fetch('/api/applications/' + applicationId, {
-        method: 'PUT',
-        body: formData,
+    const request = await fetch('/api/applications', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
     });
 
     if (request.ok) {

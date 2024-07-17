@@ -65,13 +65,13 @@
                     <select
                         id="applicationWorkSettingInput"
                         class="form-select"
-                        name="interest_level"
+                        name="work_site"
                         required
                     >
                         {{#select application.interest_level}}
-                        <option value="Onsite">Onsite</option>
-                        <option value="Remote">Remote</option>
-                        <option value="Hybrid">Hybrid</option>
+                        <option value="1">Onsite</option>
+                        <option value="2">Hybrid</option>
+                        <option value="3">Remote</option>
                         {{/select}}
                     </select>
                 </div>
@@ -82,23 +82,28 @@
                     </label>
                     <br />
                     <div class="rate">
-                        <input type="radio" id="star5" name="rate" value="5"
+                        <input type="radio" id="star5" name="interest_level"
+                        value="5"
                         {{#if (eq application.interest_level 5)}}checked{{/if}}
                         />
                         <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4"
+                        <input type="radio" id="star4" name="interest_level"
+                        value="4"
                         {{#if (eq application.interest_level 4)}}checked{{/if}}
                         />
                         <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3"
+                        <input type="radio" id="star3" name="interest_level"
+                        value="3"
                         {{#if (eq application.interest_level 3)}}checked{{/if}}
                         />
                         <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2"
+                        <input type="radio" id="star2" name="interest_level"
+                        value="2"
                         {{#if (eq application.interest_level 2)}}checked{{/if}}
                         />
                         <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1"
+                        <input type="radio" id="star1" name="interest_level"
+                        value="1"
                         {{#if (eq application.interest_level 1)}}checked{{/if}}
                         />
                         <label for="star1" title="text">1 star</label>
