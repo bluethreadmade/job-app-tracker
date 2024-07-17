@@ -154,7 +154,7 @@
                     <div id="editor">
                         <p>
                             {{#if application}}{{{ application.notes
-                            }}}{{else}}Your Notes Here{{/if}}
+                            }}}{{else}}{{/if}}
                         </p>
                     </div>
                     <button type="submit" class="btn btn-primary">
@@ -180,6 +180,7 @@
 <!-- Initialize Quill editor -->
 <script>
     const quill = new Quill('#editor', {
+        placeholder: 'Your Notes',
         theme: 'snow',
     });
 </script>
