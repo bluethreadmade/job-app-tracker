@@ -27,3 +27,6 @@ Please refer to the LICENSE in the repo.
 
 ## Deployed Webpage
 https://job-app-tracker-boic.onrender.com/
+
+## Screenshot
+![image](https://github.com/user-attachments/assets/476a2428-3cfb-4bbd-964d-5f299ecb9d8c)
