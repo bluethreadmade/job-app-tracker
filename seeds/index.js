@@ -24,7 +24,7 @@ const seedDatabase = async () => {
 
     // Generate random applications
     const applications = [];
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 60; i++) {
         applications.push({
             company: faker.company.name(),
             position: faker.person.jobTitle(),
