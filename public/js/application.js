@@ -1,3 +1,5 @@
+
+
 // From applications/
 const applicationForm = document.getElementById('application-form');
 
@@ -11,8 +13,15 @@ async function handleSubmitApplication(e) {
     // Determine if this should be an edit request or not
     const isEdit = window.location.pathname.includes('/edit/');
     const applicationId = isEdit && window.location.pathname.split('/')[3];
+
+    // get HTML from text editor
+    const notes = quill.getSemanticHTML();
+    console.log('notes', notes);
+
     // Convert form data from the form to JSON
     const formData = Object.fromEntries(new FormData(e.target));
+    formData.notes = notes;
+    console.log('event target', e.target);
 
     // If we're editing data ...
     if (isEdit && applicationId) {
