@@ -104,4 +104,23 @@ module.exports = {
         return date;
     }
 
+    // function to show stars for interest level
+    displayStars: (interest_level) => {
+        switch (interest_level) {
+            case 1:
+                return '★ ';
+            case 2:
+                return '★ ★';
+            case 3:
+                return '★ ★ ★';
+            case 4:
+                return '★ ★ ★ ★';            
+            case 5:
+                return '★ ★ ★ ★ ★';
+            default:
+                return '★ ';
+        }
+    },
+
+
 };
