@@ -88,3 +88,20 @@ a {
 .star {
     color: #deb217;
 }
+
+/* Homepage */
+.custom-bg-gradient {
+    background: linear-gradient(
+        0deg,
+        rgba(13, 110, 253, 1),
+        rgba(0, 0, 0, 0.8)
+    );
+}
+
+.custom-bg-gradient.flipped {
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(13, 110, 253, 1)
+    );
+}
