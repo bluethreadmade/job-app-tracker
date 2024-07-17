@@ -39,4 +39,16 @@ module.exports = {
         const backgrounds = ['bg-secondary', 'bg-secondary', 'bg-secondary'];
         return backgrounds[work_site - 1] || 'bg-secondary';
     },
+
+    // function to format the date to Month Day Year
+    dateFormat: (application_submitted_date) => {
+        let dateIn = String(application_submitted_date);
+
+        const newDateArray = dateIn.split(' ');
+
+        let date =
+            newDateArray[1] + ' ' + newDateArray[2] + ' ' + newDateArray[3];
+
+        return date;
+    },
 };
