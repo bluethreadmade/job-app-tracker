@@ -1,67 +1,56 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth',
-      initialDate: '2024-07-07',
-      headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      events: [
-      ]
-  });
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        initialDate: '2024-07-07',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: []
+    });
 
-  calendar.render();
+    calendar.render();
 
-  // Event listener for form submission
-  document.getElementById('application-form').addEventListener('submit', function(e) {
-      e.preventDefault();
+    document.getElementById('application-form').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-      // Fetch form values
-      var title = document.getElementById('interviewPositionInput').value;
-      var date = document.getElementById('interviewDateInput').value;
-      var time = document.getElementById('interviewTimeInput').value;
-      var videoLink = document.getElementById('interviewVideoLinkInput').value;
+        var title = document.getElementById('interviewPositionInput').value;
+        var date = document.getElementById('interviewDateInput').value;
+        var time = document.getElementById('interviewTimeInput').value;
+        var videoLink = document.getElementById('interviewVideoLinkInput').value;
 
-      // Format date as yyyy-mm-dd for FullCalendar
-      var formattedDate = formatDate(date);
+        var formattedDate = formatDate(date);
+        var start = formattedDate + 'T' + time;
 
-      // Combine date and time into start in the required format
-      var start = formattedDate + 'T' + time;
 
-      // Add new event to FullCalendar events array
-      calendar.addEvent({
-          title: title,
-          start: start,
-          url: videoLink
-      });
+        if (videoLink && !videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
+            videoLink = 'https://' + videoLink; 
+        }
 
-      // Clear form fields after submission (optional)
-      document.getElementById('interviewPositionInput').value = '';
-      document.getElementById('interviewDateInput').value = '';
-      document.getElementById('interviewTimeInput').value = '';
-      document.getElementById('interviewVideoLinkInput').value = '';
+        calendar.addEvent({
+            title: title,
+            start: start,
+            url: videoLink  // Ensure videoLink is the full URL function below:
+        });
 
-      // Display alert or confirmation (optional)
-      alert('Interview added successfully!');
+        document.getElementById('interviewPositionInput').value = '';
+        document.getElementById('interviewDateInput').value = '';
+        document.getElementById('interviewTimeInput').value = '';
+        document.getElementById('interviewVideoLinkInput').value = '';
 
-      // Render calendar to display the new event
-      calendar.render();
-  });
+        alert('Interview added successfully!');
 
-  // Helper function to format date as yyyy-mm-dd
-  function formatDate(inputDate) {
-      var date = new Date(inputDate);
-      var month = '' + (date.getMonth() + 1);
-      var day = '' + date.getDate();
-      var year = date.getFullYear();
+        calendar.render();
+    });
 
-      if (month.length < 2) 
-          month = '0' + month;
-      if (day.length < 2) 
-          day = '0' + day;
+    function formatDate(inputDate) {
+        let date = new Date(inputDate);
+        let month = ('0' + (date.getMonth() + 1)).slice(-2);
+        let day = ('0' + date.getDate()).slice(-2);
+        let year = date.getFullYear();
 
-      return [year, month, day].join('-');
-  }
+        return [year, month, day].join('-');
+    }
 });
