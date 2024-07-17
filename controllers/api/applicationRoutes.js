@@ -3,12 +3,21 @@ const router = require('express').Router();
 // require the user model
 const { Application, User } = require('../../models');
 
+// Check that the user is logged in for all of these routes
+router.use('/', (req, res, next) => {
+    if (!req.session.userId) {
+        return res.status(401).end();
+    }
+
+    next();
+});
+
 // Create new application - /api/applications
 router.get('/', async (req, res) => {
     try {
         const applicationData = await Application.findAll({
             where: { user_id: req.session.userId },
-            include: [{ model: User }]
+            include: [{ model: User }],
         });
 
         const applications = applicationData.map((application) => {
@@ -24,18 +33,11 @@ router.get('/', async (req, res) => {
 
 // Create new application - /api/applications
 router.post('/', async (req, res) => {
+    console.log(req.body);
+
     try {
         const applicationData = await Application.create({
-            company: req.body.company,
-            position: req.body.position,
-            link_to_posting: req.body.link_to_posting,
-            status: req.body.status,
-            location: req.body.location,
-            interest_level: req.body.interest_level,
-            notes: req.body.notes,
-            response_received_date: req.body.response_received_date,
-            application_submitted_date: req.body.application_submitted_date,
-            work_site: req.body.work_site,
+            ...req.body,
             user_id: req.session.userId,
         });
 
@@ -45,8 +47,6 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-
 
 // Update application - /api/application/:id
 router.put('/:id', async (req, res) => {

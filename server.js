@@ -9,39 +9,23 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const hbs = exphbs.create({ extname: '.hbs', helpers });
 
-hbs.handlebars.registerHelper('select', function (value, options) {
-    // Create a select element
-    var select = document.createElement('select');
-
-    // Populate it with the option HTML
-    $(select).html(options.fn(this));
-
-    //below statement doesn't work in IE9 so used the above one
-    //select.innerHTML = options.fn(this);
-
-    // Set the value
-    select.value = value;
-
-    // Find the selected node, if it exists, add the selected attribute to it
-    if (select.children[select.selectedIndex]) {
-        select.children[select.selectedIndex].setAttribute(
-            'selected',
-            'selected'
+// We use a select helper to set the selected option from the database for certain
+// drop down menus in our application
+hbs.handlebars.registerHelper('select', function (selected, options) {
+    return options
+        .fn(this)
+        .replace(
+            new RegExp(' value="' + selected + '"'),
+            '$& selected="selected"'
         );
-    } else {
-        //select first option if that exists
-        if (select.children[0]) {
-            select.children[0].setAttribute('selected', 'selected');
-        }
-    }
-    return select.innerHTML;
 });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Session configuration
 const sess = {
-    secret: 'Super secret secret',
+    secret: 'S7NAGufWAThLXMqg',
     cookie: {
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
@@ -58,11 +42,13 @@ const sess = {
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
 
+// Middleware configuration
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Implement our custom routes
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {

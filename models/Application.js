@@ -56,7 +56,6 @@ Application.init(
         },
         location: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         interest_level: {
             type: DataTypes.INTEGER,
@@ -75,6 +74,7 @@ Application.init(
         application_submitted_date: {
             type: DataTypes.DATE,
             allowNull: false,
+            defaultValue: DataTypes.NOW,
             validate: { isDate: true },
         },
         work_site: {

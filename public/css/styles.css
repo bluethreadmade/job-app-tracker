@@ -8,13 +8,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 a:hover {
     cursor: pointer;
 }
-
 
 /* Font sizes for homepage */
 
@@ -32,19 +31,14 @@ h2 {
     margin-bottom: 30px;
 }
 
-h4 {
-    /* margin-bottom: 30px; */
-}
-
 .fade-bg {
     background-color: var(--tertiary);
-    
 }
 
 /* end of the homepage design */
 
 a {
-    color: black; 
+    color: black;
 }
 
 /* star rating design css  */
@@ -54,29 +48,35 @@ a {
     height: 46px;
     padding: 0 10px;
 }
+
 .rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+    position: absolute;
+    top: -9999px;
 }
+
 .rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
 }
+
 .rate:not(:checked) > label:before {
     content: '★ ';
 }
+
 .rate > input:checked ~ label {
-    color: #ffc700;    
+    color: #ffc700;
 }
+
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
+    color: #deb217;
 }
+
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
 .rate > input:checked ~ label:hover,

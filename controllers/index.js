@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     res.render('homepage', { loggedIn: req.session.loggedIn });
 });
 
-router.get('/application', (req, res) => {
+router.get('/applications', (req, res) => {
     // Check that the user is logged in!
     if (!req.session.loggedIn) {
         res.redirect('/');
@@ -30,17 +30,19 @@ router.get('/applications/edit/:id', async (req, res) => {
 
     try {
         const appData = await Application.findByPk(req.params.id);
-        const application = appData.get({ plain: true});
+        const application = appData.get({ plain: true });
 
-        res.render('application', { loggedIn: req.session.loggedIn, application });
-    }catch(err) {
-
+        res.render('application', {
+            loggedIn: req.session.loggedIn,
+            application,
+        });
+    } catch (err) {
+        res.status(500).json('Something weont wrong!');
     }
-
 });
 
 // Get one application - application/:id
-router.get('/application/:id', async (req, res) => {
+router.get('/applications/:id', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/');
         return;
@@ -78,19 +80,25 @@ router.get('/dashboard', async (req, res) => {
         where: { user_id: req.session.userId },
         distinct: true, // Count only unique applications
     });
-    
+
     const interviewCount = await Application.count({
         where: { user_id: req.session.userId, status: 2 },
-        distinct: true,   
+        distinct: true,
     });
 
     const offerCount = await Application.count({
         where: { user_id: req.session.userId, status: 5 },
-        distinct: true,   
+        distinct: true,
     });
 
     // pass counts
-    res.render('dashboard', { applications, loggedIn: req.session.loggedIn, applicationCount, interviewCount, offerCount });
+    res.render('dashboard', {
+        applications,
+        loggedIn: req.session.loggedIn,
+        applicationCount,
+        interviewCount,
+        offerCount,
+    });
 });
 
 router.get('/interviews', async (req, res) => {
