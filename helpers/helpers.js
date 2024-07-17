@@ -1,67 +1,42 @@
 module.exports = {
-    // function to display status in badge  
+    // Function to display status in badge
     displayStatus: (status) => {
-        switch (status) {
-            case 1:
-                return 'Applied';
-            case 2:
-                return 'Interview Scheduled';
-            case 3:
-                return 'Interviewed';
-            case 4:
-                return 'On Hold';
-            case 5:
-                return 'Offer Received';
-            case 6:
-                return 'Offer Accepted';
-            case 7:
-                return 'Offer Rejected';
-            case 8:
-                return 'Application Rejected';
-            default:
-                return 'Applied';
-        }
+        const statuses = [
+            'Applied',
+            'Interview Scheduled',
+            'Interviewed',
+            'On Hold',
+            'Offer Received',
+            'Offer Accepted',
+            'Offer Rejected',
+            'Application Rejected',
+        ];
+
+        return statuses[status - 1] || 'Applied';
     },
 
-    // function to assign each status a badge class 
+    // Function to assign each status a badge class
     getStatusBadgeClass: (status) => {
-        switch (status) {
-            case 1:
-                return 'bg-primary';
-            case 2:
-                return 'bg-info';
-            case 3:
-                return 'bg-warning';
-            case 4:
-                return 'bg-dark';
-            case 5:
-                return 'bg-success';
-            case 6:
-                return 'bg-success';
-            case 7:
-                return 'bg-dark';
-            case 8:
-                return 'bg-danger';
-            case 1:
-                return 'bg-primary';
-            case 2:
-                return 'bg-info';
-            case 3:
-                return 'bg-warning';
-            case 4:
-                return 'bg-dark';
-            case 5:
-                return 'bg-success';
-            case 6:
-                return 'bg-success';
-            case 7:
-                return 'bg-dark';
-            case 8:
-                return 'bg-danger';
-            default:
-                return 'bg-primary';
-                return 'bg-primary';
-        }
+        const backgrounds = [
+            'bg-primary',
+            'bg-info',
+            'bg-warning',
+            'bg-dark',
+            'bg-success',
+            'bg-success',
+            'bg-dark',
+        ];
+
+        return backgrounds[status - 1] || 'bg-primary';
     },
-    eq: (a, b) => a === b,
+    // Function to display work site in badge
+    displayWorkSite: (work_site) => {
+        const workSites = ['On-Site', 'Hybrid', 'Remote'];
+        return workSites[work_site - 1] || 'On-Site';
+    },
+    // Function to assign each work site a badge class
+    getWorkSiteBadgeClass: (work_site) => {
+        const backgrounds = ['bg-secondary', 'bg-secondary', 'bg-secondary'];
+        return backgrounds[work_site - 1] || 'bg-secondary';
+    },
 };
