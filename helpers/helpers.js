@@ -41,31 +41,11 @@ module.exports = {
     },
 
     // function to format the date to Month Day Year
-    dateFormat: (application_submitted_date) => {
-        let dateIn = String(application_submitted_date);
-
-        const newDateArray = dateIn.split(' ');
-
-        let date =
-            newDateArray[1] + ' ' + newDateArray[2] + ' ' + newDateArray[3];
-
-        return date;
+    dateFormat: (given_date) => {
+        return given_date.toDateString().split(' ').splice(1).join(' ');
     },
     // function to show stars for interest level
     displayStars: (interest_level) => {
-        switch (interest_level) {
-            case 1:
-                return '★ ';
-            case 2:
-                return '★ ★';
-            case 3:
-                return '★ ★ ★';
-            case 4:
-                return '★ ★ ★ ★';
-            case 5:
-                return '★ ★ ★ ★ ★';
-            default:
-                return '★ ';
-        }
+        return new Array(interest_level).fill('★').join(' ');
     },
 };
