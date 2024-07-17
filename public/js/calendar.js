@@ -24,10 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
         var formattedDate = formatDate(date);
         var start = formattedDate + 'T' + time;
 
+        // Check if videoLink is not empty and does not start with 'http://'
+        if (videoLink && !videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
+            videoLink = 'https://' + videoLink; // Prepend 'https://' if not already present
+        }
+
         calendar.addEvent({
             title: title,
             start: start,
-            url: videoLink  // Ensure videoLink is the full URL or path
+            url: videoLink  // Ensure videoLink is the full URL
         });
 
         document.getElementById('interviewPositionInput').value = '';
