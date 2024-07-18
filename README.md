@@ -11,9 +11,7 @@ Express.js, Node.js, PostgreSQL, Handlebars.js, Sequelize
 
 ## Usage
 
-When the app is first deployed, you will be directed to the homepage, where you can read more info about AppTrack and the services it provides. Use the Login or Signup links to create or log in to your account. From here, you may navigate to: the Application tab to input a new application, the Interview tab to input a new interview, or the Dashboard tab to get a comprehensive view of all your applications and their statuses. Within the Dashboard, you may click on an individual application to get more in-depth info about it. Once you're done with your session, click the Logout button. 
-
-## Credits
+When the app is first deployed, you will be directed to the homepage, where you can read more info about AppTrack and the services it provides. Use the Login or Signup links to create or log in to your account. From here, you may navigate to: the Application tab to input a new application, the Interview tab to input a new interview, or the Dashboard tab to get a comprehensive view of all your applications and their statuses. Within the Dashboard, you may click on an individual application to get more in-depth info about it. Once you're done with your session, click the Logout button.
 
 ### Collaborators:
 Laura Alston: https://github.com/Laura-Waters <br>
