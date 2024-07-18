@@ -7,7 +7,7 @@ This application was created for busy job-hunters who want a centralized place t
 
 ## Installation
 
-Express.js, Node.js, PostgreSQL, Handlebars.js, Sequelize 
+Express.js, Node.js, PostgreSQL, Handlebars.js, Sequelize, FullCalendar
 
 ## Usage
 
