@@ -24,14 +24,14 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-// login - /api/users/login
 router.post('/login', async (req, res) => {
     try {
+        // Attempt to find the user by email on the database
         const userData = await User.scope('withPassword').findOne({
             where: { email: req.body.email },
         });
 
-        // check if the user (email) exists in the database
+        // If ther user couldnt be found by the email...
         if (!userData) {
             res.status(400).json({
                 message: 'Incorrect credentials. Please try again',
@@ -39,9 +39,13 @@ router.post('/login', async (req, res) => {
 
             return;
         }
-        // set the variable validPassword to equal the output of the method checkPassword - agaignst the request body password
+
+        // Check if the given password matches with the user on our
+        // database
         const validPassword = await userData.checkPassword(req.body.password);
 
+        // If the password doesnt match, this isnt a valid login
+        // attempt
         if (!validPassword) {
             res.status(400).json({
                 message: 'Incorrect credentials. Please try again',
@@ -50,7 +54,9 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        // if a valid email and password have been input, set the session variable to loggedIn
+        // If a valid email and password have been input
+        // set the session variable to loggedIn and keep
+        // a record of the user's id
         req.session.save(() => {
             req.session.loggedIn = true;
             req.session.userId = userData.id;
@@ -58,6 +64,7 @@ router.post('/login', async (req, res) => {
             res.redirect('/');
         });
     } catch (err) {
+        // Catch any unexpected errors with the login system
         console.log(err);
         res.status(500).json(err);
     }
